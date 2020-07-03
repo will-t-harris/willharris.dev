@@ -26,9 +26,15 @@ const Header = ({ siteTitle }) => (
           `,
         ]}
       >
-        <Link tw="mr-12">Garden</Link>
-        <Link tw="mr-12">Bikes</Link>
-        <Link tw="mr-12">Projects</Link>
+        <Link to="/garden" tw="mr-12">
+          Garden
+        </Link>
+        <Link to="/bikes" tw="mr-12">
+          Bikes
+        </Link>
+        <Link to="/projects" tw="mr-12">
+          Projects
+        </Link>
         <div tw="flex relative self-center w-16 h-8 bg-blue-300 rounded-full">
           <div tw="absolute my-auto ml-1 inset-y-0 h-5 w-5 bg-white rounded-full" />
         </div>
