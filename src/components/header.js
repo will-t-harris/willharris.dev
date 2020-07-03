@@ -19,16 +19,19 @@ const Header = ({ siteTitle }) => (
         <ChainIcon />
       </Link>
       <div
-        tw="flex w-full justify-end self-center text-2xl text-headerText"
+        tw="flex w-full justify-end self-center text-2xl text-lightModeText"
         css={[
           css`
             font-family: roboto slab;
           `,
         ]}
       >
-        <Link>Garden</Link>
-        <Link>Bikes</Link>
-        <Link>Projects</Link>
+        <Link tw="mr-12">Garden</Link>
+        <Link tw="mr-12">Bikes</Link>
+        <Link tw="mr-12">Projects</Link>
+        <div tw="flex relative self-center w-16 h-8 bg-blue-300 rounded-full">
+          <div tw="absolute my-auto ml-1 inset-y-0 h-5 w-5 bg-white rounded-full" />
+        </div>
       </div>
     </nav>
   </header>
