@@ -1,13 +1,33 @@
 import React from "react"
+import tw, { css } from "twin.macro"
 
 import SEO from "../components/seo"
 
 const IndexPage = () => (
   <>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <section
+      tw="flex flex-col py-56 mx-auto text-5xl font-semibold text-lightModeText"
+      css={[
+        css`
+          width: 900px;
+          opacity: 0.87;
+          font-family: Inter;
+        `,
+      ]}
+    >
+      <h2>Hi, I'm Will</h2>
+      <p>
+        I'm a software developer, content creator, and bikepacker from San
+        Francisco
+      </p>
+      <p>
+        Welcome to my digital garden{" "}
+        <span role="img" aria-label="smiling face emoji">
+          🙂
+        </span>
+      </p>
+    </section>
   </>
 )
 
