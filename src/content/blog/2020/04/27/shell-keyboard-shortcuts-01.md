@@ -1,0 +1,83 @@
+---
+path: "/shell-keyboard-shortcuts-01"
+title: "Shell: Keyboard Shortcuts Pt. 1"
+date: "2020-04-27"
+---
+
+As developers, we spend a great deal of time in our text editors and terminals. Any boost in efficiency with these tools has a direct impact on our productivity. Small gains with these tools add up over time and get us closer to feeling like our computers can respond immediately to our thoughts.
+
+This series of posts is primarily a way for me to store and reference some of the shell tricks and tips I've come across that I can never remember. I hope that they can be of some use to you as well. [^1] 
+
+I should also note: my understanding is that all of these commands will work with both `bash` and `zsh` default shell configurations, but if I'm mistaken in this please reach out to correct me!
+
+[^1]: I learned about many of these shortcuts from [this blog post](https://blog.balthazar-rouberol.com/shell-productivity-tips-and-tricks.html)
+
+## Navigating the current line
+
+Moving around the current line in your terminal with the <kbd>←</kbd> and <kbd>→</kbd> keys is slow - it's no way to live your life. The following table shows some shortcuts for navigating the current command quickly.
+
+| Navigation                                                   | Shortcut                                      |
+| ------------------------------------------------------------ | --------------------------------------------- |
+| Go to beginning of line                                      | <kbd>Ctrl</kbd> + <kbd>A</kbd>                |
+| Go to end of line                                            | <kbd>Ctrl</kbd> + <kbd>E</kbd>                |
+| Go to next word                                              | <kbd>Alt</kbd> + <kbd>F</kbd>                 |
+| Go to previous word                                          | <kbd>Alt</kbd> + <kbd>B</kbd>                 |
+| Toggle cursor between current position and beginning of line | <kbd>Ctrl</kbd> + <kbd>X</kbd> + <kbd>X</kbd> |
+
+------
+
+## Editing and deleting text
+
+These commands help quickly edit and delete items in the current command.
+
+| Edits                                                | Shortcut                                                        |
+| ---------------------------------------------------- | --------------------------------------------------------------- |
+| Delete previous word (via cutting)                   | <kbd>Ctrl</kbd> + <kbd>W</kbd>                                  |
+| Delete next word (via cutting)                       | <kbd>Alt</kbd> + <kbd>D</kbd>                                   |
+| Edit current command in default terminal text editor | <kbd>Ctrl</kbd> + <kbd>X</kbd> - <kbd>Ctrl</kbd> + <kbd>E</kbd> |
+| Clear command line                                   | <kbd>Ctrl</kbd> + <kbd>U</kbd>                                  |
+
+------
+
+## Cutting and pasting text
+
+The shell has some built-in commands that can help you quickly cut and paste text without using the mouse.
+
+| Action                                            | Shortcut                       |
+| ------------------------------------------------- | ------------------------------ |
+| Cut previous word                                 | <kbd>Ctrl</kbd> + <kbd>W</kbd> |
+| Cut next word                                     | <kbd>Alt</kbd> + <kbd>D</kbd>  |
+| Cut from cursor to end of line                    | <kbd>Ctrl</kbd> + <kbd>K</kbd> |
+| Cut from cursor to beginning of line              | <kbd>Ctrl</kbd> + <kbd>U</kbd> |
+| Paste the cut contents at current cursor position | <kbd>Ctrl</kbd> + <kbd>Y</kbd> |
+
+There is a little bit of nuance here. 
+
+The <kbd>Ctrl</kbd> + <kbd>W</kbd> and <kbd>Alt</kbd> + <kbd>D</kbd> commands build up the cut buffer sequentially from within the current command. This can be useful if you want to cut the first/last three words in a command, for example, but not the entire line. This behavior, as far as I can tell, does not allow you to bounce around different parts of the command, but only from any given word forward/backward. As soon as you start navigating around other parts of the command and making cuts, it seems the cut buffer is overwritten. 
+
+**(If my understanding of this is flawed, please let me know.)**
+
+------
+
+## Controlling the terminal
+
+| Action                                     | Shortcut                       | Command |
+| ------------------------------------------ | ------------------------------ | ------- |
+| Clear terminal screen                      | <kbd>Ctrl</kbd> + <kbd>L</kbd> | `clear` |
+| Close terminal screen / tab                | <kbd>Ctrl</kbd> + <kbd>D</kbd> | `exit`  |
+| Stop current job                           | <kbd>Ctrl</kbd> + <kbd>Z</kbd> |         |
+| Restart stopped job and send to foreground |                                | `fg`    |
+| Restart stopped job and send to background |                                | `bg`    |
+| List running and stopped jobs              |                                | `jobs`  |
+
+One nice shortcut for starting a program and immediately sending it to the background is the `&` operator. For example, the following command would start firefox and send the job to the background of the current terminal instance.
+
+```shell
+firefox &
+```
+
+------
+
+This list is just a taste of the things we can do with our terminals. Mastering these shortcuts will greatly increase how quickly and efficiently you can navigate and control your command-line environment.
+
+If you have any other keyboard shortcuts that you feel should be included in this list, please reach out and let me know.

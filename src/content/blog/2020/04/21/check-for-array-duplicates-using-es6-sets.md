@@ -1,0 +1,49 @@
+---
+path: "/check-for-array-duplicates"
+title: "JavaScript: How to Check if an Array has Duplicate Values"
+date: "2020-04-21"
+---
+
+When dealing with arrays of values in JavaScript we sometimes want to determine if the array contains any duplicate values. Unfortunately, JavaScript arrays do not expose any built-in methods that can do this for us -- we have to write the implementation ourselves.
+
+One approach to this problem might look like this:
+
+```javascript
+function checkForDuplicates(array) {
+  let valuesAlreadySeen = []
+
+  for (let i = 0; i < array.length; i++) {
+    let value = array[i]
+    if (valuesAlreadySeen.indexOf(value) !== -1) {
+      return true
+    }
+    valuesAlreadySeen.push(value)
+  }
+  return false
+}
+```
+
+This works, but in the worst case scenario where the only duplicate value occurs at the end of the array, this is not a very performant approach. We would have to iterate through the entire array (which could be huge!) only to realize at the last element that there is actually a non-unique value in the array.
+
+Another approach that I recently learned harnesses the power of ES6 Sets.
+
+In case you aren't familiar with Sets in JavaScript (I wasn't until recently!), [here is the MDN definition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set):
+
+> `Set` objects are collections of values. You can iterate through the elements of a set in insertion order. A value in the `Set` **may only occur once**;
+> it is unique in the `Set`'s collection.
+
+Read that last line one more time, as that is our secret sauce here. 'A value in the `Set` **may only occur once**; it is unique in the `Set`'s collection.'
+
+This fact means that we can convert our original array into a `Set` and then be confident that it only contains unique values. Once we've extracted all of the unique values from the array and stored them in our `Set`, we can compare the lengths of the array and the Set. If the lengths are not the same, it must follow that the array contained duplicate values!
+
+Here's what that approach looks like:
+
+```javascript
+function checkForDuplicates(array) {
+  return new Set(array).size !== array.length
+}
+```
+
+If the length of the `Set` and the array are not the same this function will return `true`, indicating that the array did contain duplicates. Otherwise, if the array and the `Set` are the same length the function will return `false` and we can be certain that the original array contained no duplicate values!
+
+I really like this second approach for how concise and expressive it is, but [you might run into browser support issues if you need to target older browsers](https://caniuse.com/#feat=mdn-javascript_builtins_set_set_null_allowed) so take that into consideration!

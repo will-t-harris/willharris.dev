@@ -1,0 +1,87 @@
+---
+path: "/remove-array-duplicates"
+title: "JavaScript: How to Remove Duplicate Values From Arrays"
+date: "2020-05-04"
+---
+
+In a [previous post](/check-for-array-duplicates) we saw how to determine whether a JavaScript array contains duplicate values. Today, I want to show a few different methods I've found for removing duplicate values from an array.[^1]
+
+[^1]:
+
+  https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
+  https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array/9229821#9229821
+
+## Using the `Array.prototype.filter()` & `Array.prototype.indexOf()` methods
+
+```javascript
+let originalArray = [1, 2, 3, 4, 1, 2, 3, 4]
+
+let uniqueArray = originalArray.filter((item, index, array) => {
+  return array.indexOf(item) === index
+})
+
+// uniqueArray === [1, 2, 3, 4]
+```
+
+The basic strategy here is to iterate through `originalArray` and check to see if the index of the item we are currently examining is the same as the index of the item in the `originalArray`.
+
+Because `indexOf` returns the first index that it finds for a given value, if it isn't a duplicate value then the index for that item must be the same!
+
+Note that this method is not the most efficient: it executes in quadratic time. So if the arrays you're checking are very large in size, you may want to use a different method.
+
+Another thing worth nothing is that we can use the same method to return only the duplicate values by inverting the comparison:
+
+```javascript
+let uniqueArray = originalArray.filter((item, index, array) => {
+  return array.indexOf(item) !== index
+})
+```
+
+## Using `Array.prototype.reduce()` & `Array.prototype.includes()`
+
+```javascript
+let originalArray = [1, 2, 3, 4, 1, 2, 3, 4]
+
+let uniqueArray = originalArray.reduce((unique, item) => {
+  unique.includes(item) ? unique : [...unique, item]
+}, [])
+
+// uniqueArray === [1, 2, 3, 4]
+```
+
+Here the strategy is to keep a running list of the unique items in our reducer function's 'accumulator' (`unique`). For each item in `originalArray` we check to see if the accumulator includes the item under consideration.
+
+- If it does contain the item, return the accumulator without making any changes, in effect 'skipping over' that item.
+- If it does not contain the item, spread the values in the accumulator into a new array, and add the item under consideration.
+
+`Array.prototype.includes` returns a boolean value -- `true` if the value is found in the array, `false` if not. This boolean value drives our conditional, determining what to do with each value.
+
+I find this approach less intuitive and harder to read, but it works.
+
+Also note that the empty array that is passed in after the reducer function is the starting value for the accumulator, so the first pass through the `reduce`, `unique` is an empty array.
+
+## ⚡ Using the ES6 `Set` object ⚡
+
+```javascript
+let originalArray = [1, 2, 3, 4, 1, 2, 3, 4]
+
+let uniqueArray = array => [...new Set(array)]
+
+// or
+
+let uniqueArray = Array.from(new Set(originalArray))
+
+// uniqueArray = [1, 2, 3, 4]
+```
+
+This approach harnesses the power of the `Set` object, introduced in ES6.
+
+Sets are guaranteed to preserve the order of the inserted items, and to only contain unique values. Therefore it is by definition impossible for a set to contain duplicates!
+
+Here we call the `Set` object's constructor, passing it the array we'd like to construct a `Set` from. Then, once we've trimmed out all the duplicates and stored the remaining values in our `Set`, we convert back to an array and return the result.
+
+I've seen some discussion of this approach being a bit less performant if the array under consideration is very large and contains many duplicate values. However, the same discussion found that this approach is very efficient in a scenario where the data has very few duplicates.[^2]
+
+Personally I think the conciseness of this last approach is enough of a benefit to warrant using the `Set` object approach, unless there's a compelling performance reason not to.
+
+[^2]: https://blog.usejournal.com/performance-of-javascript-array-ops-2690aed47a50
