@@ -2,11 +2,12 @@
 path: "/shell-keyboard-shortcuts-01"
 title: "Shell: Keyboard Shortcuts Pt. 1"
 date: "2020-04-27"
+garden: false
 ---
 
 As developers, we spend a great deal of time in our text editors and terminals. Any boost in efficiency with these tools has a direct impact on our productivity. Small gains with these tools add up over time and get us closer to feeling like our computers can respond immediately to our thoughts.
 
-This series of posts is primarily a way for me to store and reference some of the shell tricks and tips I've come across that I can never remember. I hope that they can be of some use to you as well. [^1] 
+This series of posts is primarily a way for me to store and reference some of the shell tricks and tips I've come across that I can never remember. I hope that they can be of some use to you as well. [^1]
 
 I should also note: my understanding is that all of these commands will work with both `bash` and `zsh` default shell configurations, but if I'm mistaken in this please reach out to correct me!
 
@@ -24,7 +25,7 @@ Moving around the current line in your terminal with the <kbd>←</kbd> and <kbd
 | Go to previous word                                          | <kbd>Alt</kbd> + <kbd>B</kbd>                 |
 | Toggle cursor between current position and beginning of line | <kbd>Ctrl</kbd> + <kbd>X</kbd> + <kbd>X</kbd> |
 
-------
+---
 
 ## Editing and deleting text
 
@@ -37,7 +38,7 @@ These commands help quickly edit and delete items in the current command.
 | Edit current command in default terminal text editor | <kbd>Ctrl</kbd> + <kbd>X</kbd> - <kbd>Ctrl</kbd> + <kbd>E</kbd> |
 | Clear command line                                   | <kbd>Ctrl</kbd> + <kbd>U</kbd>                                  |
 
-------
+---
 
 ## Cutting and pasting text
 
@@ -51,13 +52,13 @@ The shell has some built-in commands that can help you quickly cut and paste tex
 | Cut from cursor to beginning of line              | <kbd>Ctrl</kbd> + <kbd>U</kbd> |
 | Paste the cut contents at current cursor position | <kbd>Ctrl</kbd> + <kbd>Y</kbd> |
 
-There is a little bit of nuance here. 
+There is a little bit of nuance here.
 
-The <kbd>Ctrl</kbd> + <kbd>W</kbd> and <kbd>Alt</kbd> + <kbd>D</kbd> commands build up the cut buffer sequentially from within the current command. This can be useful if you want to cut the first/last three words in a command, for example, but not the entire line. This behavior, as far as I can tell, does not allow you to bounce around different parts of the command, but only from any given word forward/backward. As soon as you start navigating around other parts of the command and making cuts, it seems the cut buffer is overwritten. 
+The <kbd>Ctrl</kbd> + <kbd>W</kbd> and <kbd>Alt</kbd> + <kbd>D</kbd> commands build up the cut buffer sequentially from within the current command. This can be useful if you want to cut the first/last three words in a command, for example, but not the entire line. This behavior, as far as I can tell, does not allow you to bounce around different parts of the command, but only from any given word forward/backward. As soon as you start navigating around other parts of the command and making cuts, it seems the cut buffer is overwritten.
 
 **(If my understanding of this is flawed, please let me know.)**
 
-------
+---
 
 ## Controlling the terminal
 
@@ -76,7 +77,7 @@ One nice shortcut for starting a program and immediately sending it to the backg
 firefox &
 ```
 
-------
+---
 
 This list is just a taste of the things we can do with our terminals. Mastering these shortcuts will greatly increase how quickly and efficiently you can navigate and control your command-line environment.
 

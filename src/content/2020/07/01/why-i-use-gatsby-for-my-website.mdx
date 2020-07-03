@@ -2,6 +2,7 @@
 path: "/why-i-use-gatsby-for-my-website"
 title: "Why I Use Gatsby for My Website"
 date: "2020-07-01"
+garden: true
 ---
 
 I built this website using [React](https://reactjs.org/) and [Gatsby](https://www.gatsbyjs.org/). Partially this was to give me the opportunity both to learn a new tool (Gatsby) and to practice with GraphQL.
@@ -20,13 +21,13 @@ Images account for a significant portion of the size of most websites. Because o
 
 Best practices for performance across a range of devices call for multiple image sizes and resolutions. We could manually create different versions of every image that we use on a website, but this adds a lot of duplicate work for every image that we include. Another downside of the manual approach is the added bookkeeping involved in ensuring that all of the images get optimized before they make it to production.
 
-Gatsby makes image optimization much easier, harnessing the power of build plugins and transformers to eliminate most of the manual work. 
+Gatsby makes image optimization much easier, harnessing the power of build plugins and transformers to eliminate most of the manual work.
 
 Gatsby sources data using source plugins, which allow the developer to pull data from different sources. `gatsby-source-filesystem` sources data into our application from the project's local filesystem, creating `File` nodes in Gatsby's GraphQL API. Gatsby applies various transformer plugins to these `File` nodes, turning them into various other types of nodes. For image processing, the `gatsby-transformer-sharp` plugin takes supported image files and creates `ImageSharp` nodes from them.
 
-These `ImageSharp` nodes can then be manipulated by the [Sharp image processing Node.js library](https://github.com/lovell/sharp) to help with image processing and optimization. We perform these manipulations with GraphQL queries in Gatsby, which allow Gatsby and Sharp to perform all of our required optimizations while building the final static site. This is where we save a *ton* of work compared to optimizing images manually. We only need to configure how we want our images optimized, and Gatsby handles the rest.
+These `ImageSharp` nodes can then be manipulated by the [Sharp image processing Node.js library](https://github.com/lovell/sharp) to help with image processing and optimization. We perform these manipulations with GraphQL queries in Gatsby, which allow Gatsby and Sharp to perform all of our required optimizations while building the final static site. This is where we save a _ton_ of work compared to optimizing images manually. We only need to configure how we want our images optimized, and Gatsby handles the rest.
 
-Gatsby also ships an [image component](https://www.gatsbyjs.org/packages/gatsby-image/) that is designed to work well with Gatsby's GraphQL queries. It is optimized specifically for fixed width/height images and images that stretch to fit full-width containers. 
+Gatsby also ships an [image component](https://www.gatsbyjs.org/packages/gatsby-image/) that is designed to work well with Gatsby's GraphQL queries. It is optimized specifically for fixed width/height images and images that stretch to fit full-width containers.
 
 The `gatsby-image` component automatically helps with image optimization in several ways. It:
 
@@ -40,7 +41,7 @@ All of these features are "batteries-included" with the `gatsby-image` component
 
 ### No Backend / Moving Parts
 
-Setting up a "traditional" website is a fairly complex process. From provisioning VMs to run instances of a server-side app, to configuring [Docker](https://www.docker.com/) images to ensure a consistent environment, to configuring auto-scaling solutions like [Kubernetes](https://kubernetes.io/). There are a lot of moving pieces to keep track of. 
+Setting up a "traditional" website is a fairly complex process. From provisioning VMs to run instances of a server-side app, to configuring [Docker](https://www.docker.com/) images to ensure a consistent environment, to configuring auto-scaling solutions like [Kubernetes](https://kubernetes.io/). There are a lot of moving pieces to keep track of.
 
 And if we want to deploy any changes to our site with this structure, it involves deploying a completely new version of the site. We'd have to spin down existing versions of the service, spin up the new version, and deal with any issues that might pop up during the process.
 
@@ -48,11 +49,11 @@ Gatsby simplifies this process by building websites as static HTML files which c
 
 My site is hosted on [Netlify](https://www.netlify.com/), which allows me to use a GitHub repository as my CI system. If I want to publish a new version of the site, all I need to do is merge a pull request into my main branch. Netlify is constantly listening for pushes to that branch&mdash;as soon as changes are noticed, a new version of the site is built with Gatsby and pushed to the CDN. Typical deploys for me right now take about one minute.
 
-Both approaches can result in robust, performant websites. However, deploying and hosting static content via CDN has *far fewer* moving pieces and completely removes the server management aspect of developing a website.
+Both approaches can result in robust, performant websites. However, deploying and hosting static content via CDN has _far fewer_ moving pieces and completely removes the server management aspect of developing a website.
 
 ### Build Optimizations
 
-Gatsby sites are built in React and then built into static HTML files by Node.js processes. The process of converting pages and content on the server into HTML is called server-side rendering (SSR), and it's nothing new. 
+Gatsby sites are built in React and then built into static HTML files by Node.js processes. The process of converting pages and content on the server into HTML is called server-side rendering (SSR), and it's nothing new.
 
 Developers have been rendering HTML pages on servers for many years. Previously, however, sites would use languages like PHP on the server to fetch data from databases, in response to user requests, and compile it into an HTML document to send to the user.
 
@@ -64,9 +65,9 @@ With Gatsby, **all of the SSR magic occurs during the build process**. This buil
 4. GraphQL queries from our React components are extracted from our components and run against the GraphQL layer, providing data for all of the HTML pages.
 5. Static files are created for all of our pages, with all data bundled alongside our views in the `public` directory.
 
-The resulting HTML files created by Gatsby also use modern browser APIs to maximize performance, resulting in *crazy fast* websites. 
+The resulting HTML files created by Gatsby also use modern browser APIs to maximize performance, resulting in _crazy fast_ websites.
 
-It harnesses the [`IntersectionObserver` API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), which conditionally performs actions when elements enter the browser's viewport. 
+It harnesses the [`IntersectionObserver` API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), which conditionally performs actions when elements enter the browser's viewport.
 
 Specifically, in Gatsby `IntersectionObserver` is implemented in the `Link` component for routes internal to the site. The behavior has two parts:
 
@@ -79,7 +80,7 @@ In combination, these two techniques almost guarantee that internal page data wi
 
 One additional benefit I've found in using a system like Gatsby for my writing is the ability to keep all of my data in plain text markdown files.
 
-As Dave Thomas and Andy Hunt write in *The Pragmatic Programmer*:
+As Dave Thomas and Andy Hunt write in _The Pragmatic Programmer_:
 
 > The problem with most binary formats is that the context necessary to understand the data is separate from the data itself. You are artificially divorcing the data from its meaning. The data may as well be encrypted: it is absolutely meaningless without the application logic to parse it. With plain text, however, you can achieve a self-describing data stream that is independent of the application that created it.
 
@@ -91,4 +92,4 @@ Gatsby uses the `gatsby-transformer-remark` plugin to make the contents of my ma
 
 This is by no means a complete list of reasons for choosing static site generators like Gatsby for building modern websites, but I hope it can at least be helpful for anyone who hasn't yet jumped into the Gatsby ecosystem. It can be intimidating at first, but the time spent learning the system is well worth it for the speed of the final site. The developer experience building and maintaining a Gatsby site is also excellent.
 
-Do you have other static site generators or other approaches to building websites that you're crazy about? Tweet me [@will__tweets](https://twitter.com/will__tweets) and let me know, I'd love to hear about it!
+Do you have other static site generators or other approaches to building websites that you're crazy about? Tweet me [@will\_\_tweets](https://twitter.com/will__tweets) and let me know, I'd love to hear about it!
