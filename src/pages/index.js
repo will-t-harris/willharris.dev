@@ -16,8 +16,8 @@ const IndexPage = () => (
         `,
       ]}
     >
-      <h2>Hi, I'm Will</h2>
-      <p>
+      <h2 tw="mb-16">Hi, I'm Will</h2>
+      <p tw="mb-16">
         I'm a software developer, content creator, and bikepacker from San
         Francisco
       </p>
