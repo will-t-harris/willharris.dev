@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       textColor: {
-        lightModeText: "#0F1B61",
+        lightModeText: "#323d79",
       },
       backgroundColor: {
         lightModeBody: "#f4f9fc",

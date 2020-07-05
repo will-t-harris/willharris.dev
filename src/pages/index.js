@@ -11,7 +11,6 @@ const IndexPage = () => (
       css={[
         css`
           width: 900px;
-          opacity: 0.87;
           font-family: Inter;
         `,
       ]}

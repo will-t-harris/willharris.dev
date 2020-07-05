@@ -50,12 +50,13 @@ const Header = ({
             Projects
           </Link>
           <Switch
+            tw="self-center"
             onChange={() => setIsChecked(!isChecked)}
             checked={isChecked}
             aria-label="dark mode toggle button"
             checkedIcon={false}
             uncheckedIcon={false}
-            offColor="#0F1B61"
+            offColor="#323d79"
             offHandleColor="#f4f9fc"
             onColor="#f4f9fc"
             onHandleColor="#272525"
