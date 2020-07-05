@@ -7,7 +7,7 @@ const IndexPage = () => (
   <>
     <SEO title="Home" />
     <section
-      tw="flex flex-col py-56 mx-auto text-5xl font-semibold text-lightModeText"
+      tw="flex flex-col py-56 mx-auto text-5xl font-semibold"
       css={[
         css`
           width: 900px;
