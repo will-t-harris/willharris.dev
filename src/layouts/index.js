@@ -35,7 +35,12 @@ const Layout = ({ children }) => {
         lightModeStyles={lightModeStyles}
         darkModeStyles={darkModeStyles}
       />
-      <main css={isChecked ? darkModeStyles : lightModeStyles}>{children}</main>
+      <main
+        tw="transition ease-linear duration-200"
+        css={isChecked ? darkModeStyles : lightModeStyles}
+      >
+        {children}
+      </main>
     </>
   )
 }

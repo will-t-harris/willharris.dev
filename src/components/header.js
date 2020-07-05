@@ -13,7 +13,10 @@ const Header = ({
   darkModeStyles,
 }) => {
   return (
-    <header css={isChecked ? darkModeStyles : lightModeStyles}>
+    <header
+      tw="transition ease-linear duration-200"
+      css={isChecked ? darkModeStyles : lightModeStyles}
+    >
       <nav
         tw="flex mx-auto"
         css={[
