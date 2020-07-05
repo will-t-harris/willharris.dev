@@ -21,7 +21,7 @@ const Garden = () => {
   const { nodes } = data.allMdx
   return (
     <div
-      tw="flex flex-col mx-auto text-lightModeText"
+      tw="flex flex-col mx-auto"
       css={[
         css`
           width: 900px;
@@ -30,7 +30,7 @@ const Garden = () => {
       ]}
     >
       {nodes.map((node) => {
-        if (Boolean(node.frontmatter.garden)) {
+        if (node.frontmatter.garden) {
           return (
             <Link to={`/garden${node.frontmatter.path}`} key={node.id}>
               {node.frontmatter.title}

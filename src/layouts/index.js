@@ -60,7 +60,7 @@ const Layout = ({ children }) => {
         darkModeStyles={darkModeStyles}
       />
       <main
-        tw="transition ease-linear duration-200"
+        tw="transition ease-linear duration-100"
         css={isChecked ? darkModeStyles : lightModeStyles}
       >
         {children}

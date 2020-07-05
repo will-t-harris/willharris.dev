@@ -8,7 +8,7 @@ export const ChainIcon = ({ isChecked, lightModeStyles, darkModeStyles }) => {
       height="91"
       xmlns="http://www.w3.org/2000/svg"
       css={isChecked ? darkModeStyles : lightModeStyles}
-      tw="transition ease-linear duration-200"
+      tw="transition ease-linear duration-100"
     >
       <g clipPath="url(#clip0)" fill={isChecked ? "#f4f9fc" : "#323d79"}>
         <path d="M62.226 39.598a8 8 0 110 11.313 8.01 8.01 0 010-11.313zm7.542 7.542a2.666 2.666 0 10-3.77-3.77 2.666 2.666 0 003.77 3.77z" />
