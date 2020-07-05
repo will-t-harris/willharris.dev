@@ -2,46 +2,67 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
+import Switch from "react-switch"
 
 import { ChainIcon } from "../components/icons/chainIcon"
 
-const Header = ({ siteTitle }) => (
-  <header tw="bg-lightModeBody">
-    <nav
-      tw="flex mx-auto"
-      css={[
-        css`
-          width: 900px;
-        `,
-      ]}
-    >
-      <Link to="/">
-        <ChainIcon />
-      </Link>
-      <div
-        tw="flex w-full justify-end self-center text-2xl text-lightModeText"
+const Header = ({
+  isChecked,
+  setIsChecked,
+  lightModeStyles,
+  darkModeStyles,
+}) => {
+  return (
+    <header css={isChecked ? darkModeStyles : lightModeStyles}>
+      <nav
+        tw="flex mx-auto"
         css={[
           css`
-            font-family: roboto slab;
+            width: 900px;
           `,
         ]}
       >
-        <Link to="/garden" tw="mr-12">
-          Garden
+        <Link to="/">
+          <ChainIcon
+            isChecked={isChecked}
+            lightModeStyles={lightModeStyles}
+            darkModeStyles={darkModeStyles}
+          />
         </Link>
-        <Link to="/bikes" tw="mr-12">
-          Bikes
-        </Link>
-        <Link to="/projects" tw="mr-12">
-          Projects
-        </Link>
-        <div tw="flex relative self-center w-16 h-8 bg-blue-300 rounded-full">
-          <div tw="absolute my-auto ml-1 inset-y-0 h-5 w-5 bg-white rounded-full" />
+        <div
+          tw="flex w-full justify-end self-center text-2xl"
+          css={[
+            css`
+              font-family: roboto slab;
+            `,
+          ]}
+        >
+          <Link to="/garden" tw="mr-12">
+            Garden
+          </Link>
+          <Link to="/bikes" tw="mr-12">
+            Bikes
+          </Link>
+          <Link to="/projects" tw="mr-12">
+            Projects
+          </Link>
+          <Switch
+            onChange={() => setIsChecked(!isChecked)}
+            checked={isChecked}
+            aria-label="dark mode toggle button"
+            checkedIcon={false}
+            uncheckedIcon={false}
+            offColor="#0F1B61"
+            offHandleColor="#f4f9fc"
+            onColor="#f4f9fc"
+            onHandleColor="#272525"
+            handleDiameter={20}
+          />
         </div>
-      </div>
-    </nav>
-  </header>
-)
+      </nav>
+    </header>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
