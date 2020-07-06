@@ -5,12 +5,13 @@ import tw, { css } from "twin.macro"
 const Garden = () => {
   const data = useStaticQuery(graphql`
     query gardenQuery {
-      allMdx {
+      allMdx(filter: { frontmatter: { contentCategory: { eq: "post" } } }) {
         nodes {
           frontmatter {
             title
             path
             garden
+            contentCategory
           }
           id
         }
@@ -20,7 +21,7 @@ const Garden = () => {
 
   const { nodes } = data.allMdx
   return (
-    <div
+    <section
       tw="flex flex-col mx-auto"
       css={[
         css`
@@ -29,6 +30,7 @@ const Garden = () => {
         `,
       ]}
     >
+      <h1 tw="text-4xl mt-16 mb-10 font-bold">Digital Garden</h1>
       {nodes.map((node) => {
         if (node.frontmatter.garden) {
           return (
@@ -38,7 +40,7 @@ const Garden = () => {
           )
         }
       })}
-    </div>
+    </section>
   )
 }
 
