@@ -1,7 +1,7 @@
 import React from "react"
 import tw, { css } from "twin.macro"
 
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 
 const IndexPage = () => (
   <>
