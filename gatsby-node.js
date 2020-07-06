@@ -17,7 +17,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async ({ actions: { createPage }, graphql }) => {
   const { data } = await graphql(`
     query nodeQuery {
-      allMdx {
+      posts: allMdx(
+        filter: { frontmatter: { contentCategory: { eq: "post" } } }
+      ) {
+        nodes {
+          frontmatter {
+            path
+          }
+          fields {
+            slug
+          }
+        }
+      }
+      bikes: allMdx(
+        filter: { frontmatter: { contentCategory: { eq: "bike" } } }
+      ) {
         nodes {
           frontmatter {
             path
@@ -31,18 +45,25 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
   `)
 
   const postTemplate = require.resolve("./src/templates/postTemplate.js")
+  const bikeTemplate = require.resolve("./src/templates/bikeTemplate.js")
 
   if (data.error) {
-    console.error(`DANGER DANGER, something went wrong`)
+    console.error(`Error during createPages: ${data.error}`)
   }
 
-  data.allMdx.nodes.forEach((node) => {
-    if (node.fields.slug) {
-      createPage({
-        path: `/garden${node.frontmatter.path}`,
-        component: postTemplate,
-        context: { slug: node.frontmatter.path },
-      })
-    }
+  data.posts.nodes.forEach((node) => {
+    createPage({
+      path: `/garden${node.frontmatter.path}`,
+      component: postTemplate,
+      context: { slug: node.frontmatter.path },
+    })
+  })
+
+  data.bikes.nodes.forEach((node) => {
+    createPage({
+      path: `/bike${node.frontmatter.path}`,
+      component: bikeTemplate,
+      context: { slug: node.frontmatter.path },
+    })
   })
 }
