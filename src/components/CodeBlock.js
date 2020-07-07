@@ -7,7 +7,11 @@ export const CodeBlock = ({ children, className }) => {
   return (
     <Highlight {...defaultProps} code={children} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
+        <pre
+          tw="overflow-x-auto"
+          className={className}
+          style={{ ...style, padding: "20px" }}
+        >
           {tokens.map((line, index) => (
             <div key={index} {...getLineProps({ line, key: index })}>
               {line.map((token, key) => (
