@@ -14,8 +14,8 @@ const Header = ({
 }) => {
   return (
     <header
-      tw="transition ease-linear duration-100"
-      css={isChecked ? darkModeStyles : lightModeStyles}
+      tw="transition ease-linear duration-100 fixed w-full shadow-sm"
+      css={[isChecked ? darkModeStyles : lightModeStyles]}
     >
       <nav
         tw="flex mx-auto"
