@@ -70,6 +70,10 @@ const Header = ({
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  isChecked: PropTypes.bool.isRequired,
+  setIsChecked: PropTypes.func.isRequired,
+  lightModeStyles: PropTypes.object.isRequired,
+  darkModeStyles: PropTypes.object.isRequired,
 }
 
 Header.defaultProps = {

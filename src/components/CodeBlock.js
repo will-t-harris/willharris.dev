@@ -1,6 +1,7 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Highlight, { defaultProps } from "prism-react-renderer"
-import tw, { css } from "twin.macro"
+import tw from "twin.macro"
 
 export const CodeBlock = ({ children, className }) => {
   const language = className.replace(/language-/, "")
@@ -23,4 +24,9 @@ export const CodeBlock = ({ children, className }) => {
       )}
     </Highlight>
   )
+}
+
+CodeBlock.propTypes = {
+  children: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 
 export const CardButton = ({ buttonText, buttonUrl }) => {
@@ -7,4 +8,9 @@ export const CardButton = ({ buttonText, buttonUrl }) => {
       {buttonText}
     </a>
   )
+}
+
+CardButton.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  buttonUrl: PropTypes.string.isRequired,
 }

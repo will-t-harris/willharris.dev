@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { css } from "twin.macro"
 
 export const ChainIcon = ({ isChecked, lightModeStyles, darkModeStyles }) => {
@@ -25,4 +26,10 @@ export const ChainIcon = ({ isChecked, lightModeStyles, darkModeStyles }) => {
       </defs>
     </svg>
   )
+}
+
+ChainIcon.propTypes = {
+  isChecked: PropTypes.bool.isRequired,
+  lightModeStyles: PropTypes.object.isRequired,
+  darkModeStyles: PropTypes.object.isRequired,
 }

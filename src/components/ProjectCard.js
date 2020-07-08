@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import tw, { css } from "twin.macro"
 
@@ -47,4 +48,12 @@ export const ProjectCard = ({
       </div>
     </section>
   )
+}
+
+ProjectCard.propTypes = {
+  projectName: PropTypes.string.isRequired,
+  sourceUrl: PropTypes.string.isRequired,
+  npmUrl: PropTypes.string,
+  liveUrl: PropTypes.string,
+  pageUrl: PropTypes.string.isRequired,
 }
