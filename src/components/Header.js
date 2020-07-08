@@ -3,20 +3,14 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 import Switch from "react-switch"
+import { useTheme } from "../ThemeContext"
 
 import { ChainIcon } from "../components/icons/chainIcon"
 
-const Header = ({
-  isChecked,
-  setIsChecked,
-  lightModeStyles,
-  darkModeStyles,
-}) => {
+const Header = () => {
+  const themeState = useTheme()
   return (
-    <header
-      tw="transition ease-linear duration-100 fixed w-full shadow-sm"
-      css={[isChecked ? darkModeStyles : lightModeStyles]}
-    >
+    <header tw="transition ease-linear duration-100 fixed w-full shadow-sm">
       <nav
         tw="flex mx-auto"
         css={[
@@ -26,11 +20,7 @@ const Header = ({
         ]}
       >
         <Link to="/">
-          <ChainIcon
-            isChecked={isChecked}
-            lightModeStyles={lightModeStyles}
-            darkModeStyles={darkModeStyles}
-          />
+          <ChainIcon />
         </Link>
         <div
           tw="flex w-full justify-end self-center text-2xl"
@@ -51,8 +41,8 @@ const Header = ({
           </Link>
           <Switch
             tw="self-center"
-            onChange={() => setIsChecked(!isChecked)}
-            checked={isChecked}
+            onChange={themeState.toggle}
+            checked={themeState.dark}
             aria-label="dark mode toggle button"
             checkedIcon={false}
             uncheckedIcon={false}

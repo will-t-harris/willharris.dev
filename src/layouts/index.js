@@ -6,7 +6,7 @@ import tw, { css } from "twin.macro"
 import Header from "../components/Header"
 
 const Layout = ({ children }) => {
-  const [isChecked, setIsChecked] = useState(getInitialMode())
+  // const [isChecked, setIsChecked] = useState(getInitialMode())
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -18,52 +18,34 @@ const Layout = ({ children }) => {
     }
   `)
 
-  useEffect(() => {
-    localStorage.setItem("dark", JSON.stringify(isChecked))
-  }, [isChecked])
+  // useEffect(() => {
+  //   localStorage.setItem("dark", JSON.stringify(isChecked))
+  // }, [isChecked])
 
-  function getInitialMode() {
-    const isReturningUser = "dark" in localStorage
-    const savedMode = JSON.parse(localStorage.getItem("dark"))
-    const userPrefersDark = getPrefColorScheme()
+  // function getInitialMode() {
+  //   const isReturningUser = "dark" in localStorage
+  //   const savedMode = JSON.parse(localStorage.getItem("dark"))
+  //   const userPrefersDark = getPrefColorScheme()
 
-    if (userPrefersDark) {
-      return true
-    } else if (isReturningUser) {
-      return savedMode
-    } else {
-      return false
-    }
-  }
+  //   if (userPrefersDark) {
+  //     return true
+  //   } else if (isReturningUser) {
+  //     return savedMode
+  //   } else {
+  //     return false
+  //   }
+  // }
 
-  function getPrefColorScheme() {
-    if (!window.matchMedia) return
+  // function getPrefColorScheme() {
+  //   if (!window.matchMedia) return
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-  }
-
-  const lightModeStyles = css`
-    background: #f4f9fc;
-    color: #323d79;
-  `
-
-  const darkModeStyles = css`
-    background: #272525;
-    color: #f4f9fc;
-  `
+  //   return window.matchMedia("(prefers-color-scheme: dark)").matches
+  // }
 
   return (
     <>
-      <Header
-        isChecked={isChecked}
-        setIsChecked={setIsChecked}
-        lightModeStyles={lightModeStyles}
-        darkModeStyles={darkModeStyles}
-      />
-      <main
-        tw="flex flex-col pt-20 transition ease-linear duration-100"
-        css={isChecked ? darkModeStyles : lightModeStyles}
-      >
+      <Header />
+      <main tw="flex flex-col pt-20 transition ease-linear duration-100">
         {children}
       </main>
     </>
