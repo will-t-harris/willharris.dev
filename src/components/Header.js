@@ -3,19 +3,18 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 import Switch from "react-switch"
+import { useTheme } from "../ThemeContext"
+import { themeDark, themeLight } from "../theme"
 
 import { ChainIcon } from "../components/icons/chainIcon"
 
-const Header = ({
-  isChecked,
-  setIsChecked,
-  lightModeStyles,
-  darkModeStyles,
-}) => {
+const Header = () => {
+  const themeState = useTheme()
+
   return (
     <header
       tw="transition ease-linear duration-100 fixed w-full shadow-sm"
-      css={[isChecked ? darkModeStyles : lightModeStyles]}
+      css={[themeState.dark ? themeDark : themeLight]}
     >
       <nav
         tw="flex mx-auto"
@@ -26,11 +25,7 @@ const Header = ({
         ]}
       >
         <Link to="/">
-          <ChainIcon
-            isChecked={isChecked}
-            lightModeStyles={lightModeStyles}
-            darkModeStyles={darkModeStyles}
-          />
+          <ChainIcon />
         </Link>
         <div
           tw="flex w-full justify-end self-center text-2xl"
@@ -51,8 +46,8 @@ const Header = ({
           </Link>
           <Switch
             tw="self-center"
-            onChange={() => setIsChecked(!isChecked)}
-            checked={isChecked}
+            onChange={themeState.toggle}
+            checked={themeState.dark}
             aria-label="dark mode toggle button"
             checkedIcon={false}
             uncheckedIcon={false}
@@ -70,10 +65,6 @@ const Header = ({
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  isChecked: PropTypes.bool.isRequired,
-  setIsChecked: PropTypes.func.isRequired,
-  lightModeStyles: PropTypes.object.isRequired,
-  darkModeStyles: PropTypes.object.isRequired,
 }
 
 Header.defaultProps = {
