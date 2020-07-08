@@ -4,13 +4,18 @@ import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 import Switch from "react-switch"
 import { useTheme } from "../ThemeContext"
+import { themeDark, themeLight } from "../theme"
 
 import { ChainIcon } from "../components/icons/chainIcon"
 
 const Header = () => {
   const themeState = useTheme()
+
   return (
-    <header tw="transition ease-linear duration-100 fixed w-full shadow-sm">
+    <header
+      tw="transition ease-linear duration-100 fixed w-full shadow-sm"
+      css={[themeState.dark ? themeDark : themeLight]}
+    >
       <nav
         tw="flex mx-auto"
         css={[
@@ -60,10 +65,6 @@ const Header = () => {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  isChecked: PropTypes.bool.isRequired,
-  setIsChecked: PropTypes.func.isRequired,
-  lightModeStyles: PropTypes.object.isRequired,
-  darkModeStyles: PropTypes.object.isRequired,
 }
 
 Header.defaultProps = {
