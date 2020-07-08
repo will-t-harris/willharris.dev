@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
     <>
       <Header />
       <main
-        tw="flex flex-col pt-20 transition ease-linear duration-100"
+        tw="flex flex-col pt-20 transition ease-linear duration-100 antialiased"
         css={themeState.dark ? themeDark : themeLight}
       >
         {children}
