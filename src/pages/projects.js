@@ -23,11 +23,13 @@ const Projects = () => {
       />
       <ProjectCard
         projectName="move-with-madeline"
+        pageUrl="/projects/move-with-madeline"
         sourceUrl="https://github.com/will-t-harris/move-with-madeline"
         liveUrl="https://movewithmadeline.com"
       />
       <ProjectCard
         projectName="abq-bike-trails"
+        pageUrl="abq-bike-trails"
         sourceUrl="https://github.com/abq-outdoor-trails/outdoor-trails-master"
         liveUrl="http://abqtrails.deepdivecoding.com/"
       />
