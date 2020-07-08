@@ -8,7 +8,7 @@ export const CodeBlock = ({ children, className }) => {
     <Highlight {...defaultProps} code={children} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          tw="overflow-x-auto"
+          tw="overflow-x-auto mx-auto my-10 rounded-lg shadow"
           className={className}
           style={{ ...style, padding: "20px" }}
         >
