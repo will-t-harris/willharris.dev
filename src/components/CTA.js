@@ -4,48 +4,25 @@ import tw, { css } from "twin.macro"
 export const CTA = () => {
   return (
     <footer
-      tw="flex flex-col self-end py-20"
+      tw="flex flex-col py-20 mx-auto"
       css={[
         css`
           width: 900px;
         `,
       ]}
     >
-      <h2
-        tw="font-bold text-2xl"
-        css={[
-          css`
-            width: 450px;
-          `,
-        ]}
-      >
-        Now What?
-      </h2>
-      <p
-        tw="font-normal text-xl"
-        css={[
-          css`
-            width: 450px;
-          `,
-        ]}
-      >
+      <h2 tw="font-bold text-2xl mb-4">Now What?</h2>
+      <p tw="font-normal text-xl mb-4">
         If you enjoyed this post, I'd love to continue the conversation on{" "}
         <a
-          tw="text-pink-600 font-semibold hover:text-green-600"
+          tw="text-pink-600 font-semibold hover:text-pink-700"
           href="https://twitter.com/will__tweets"
         >
           Twitter
         </a>
         .
       </p>
-      <p
-        tw="font-normal text-xl"
-        css={[
-          css`
-            width: 450px;
-          `,
-        ]}
-      >
+      <p tw="font-normal text-xl">
         Social media not your thing? Shoot me an email:{" "}
         <span tw="text-pink-600 font-semibold">will@bikesandbytes.net</span>
       </p>
