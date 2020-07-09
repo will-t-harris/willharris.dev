@@ -6,7 +6,6 @@ import tw, { css } from "twin.macro"
 import { CTA } from "../components/CTA"
 
 const Post = ({ data }) => {
-  console.log(data)
   return (
     <>
       <article tw="flex flex-col">

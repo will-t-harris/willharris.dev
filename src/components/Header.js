@@ -36,7 +36,7 @@ const Header = () => {
           ]}
         >
           <Link to="/garden" tw="mr-12">
-            Garden
+            Digital Garden
           </Link>
           <Link to="/bikes" tw="mr-12">
             Bikes
