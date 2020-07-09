@@ -9,7 +9,7 @@ const Post = ({ data }) => {
   console.log(data)
   return (
     <>
-      <article>
+      <article tw="flex flex-col">
         <h1 tw="font-black text-2xl text-center my-16">
           {data.mdx.frontmatter.title}
         </h1>
