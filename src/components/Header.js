@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header
-      tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased"
+      tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20"
       css={[themeState.dark ? themeDark : themeLight]}
     >
       <nav
