@@ -1,55 +1,52 @@
-import React from "react"
-import { ThemeProvider as EmotionThemeProvider } from "emotion-theming"
-import { theme } from "./theme"
+import React, { useState, useEffect, createContext, useMemo } from "react"
+import {
+  COLORS,
+  COLOR_MODE_KEY,
+  INITIAL_COLOR_MODE_CSS_PROP,
+} from "./constants"
 
-const defaultContextValue = {
-  dark: false,
-  toggle: () => {},
-}
+export const ThemeContext = createContext()
 
-const ThemeContext = React.createContext(defaultContextValue)
-const useTheme = () => React.useContext(ThemeContext)
+export const ThemeProvider = ({ children }) => {
+  const [colorMode, rawSetColorMode] = useState(undefined)
 
-const useEffectDarkMode = () => {
-  const [themeState, setThemeState] = React.useState({
-    dark: false,
-    hasThemeMounted: false,
-  })
+  useEffect(() => {
+    const root = window.document.documentElement
 
-  React.useEffect(() => {
-    const localStorageDark = localStorage.getItem("dark") === "true"
-    setThemeState({
-      ...themeState,
-      dark: localStorageDark,
-      hasThemeMounted: true,
-    })
+    // Because colors matter so much for the initial page view, we're
+    // doing a lot of the work in gatsby-ssr. That way it can happen before
+    // the React component tree mounts.
+    const initialColorValue = root.style.getPropertyValue(
+      INITIAL_COLOR_MODE_CSS_PROP
+    )
+
+    rawSetColorMode(initialColorValue)
   }, [])
 
-  return [themeState, setThemeState]
-}
+  const contextValue = useMemo(() => {
+    function setColorMode(newValue) {
+      const root = window.document.documentElement
 
-const ThemeProvider = ({ children }) => {
-  const [themeState, setThemeState] = useEffectDarkMode()
+      localStorage.setItem(COLOR_MODE_KEY, newValue)
 
-  if (!themeState.hasThemeMounted) {
-    return <div />
-  }
+      Object.entries(COLORS).forEach(([name, colorByTheme]) => {
+        const cssVarName = `--color-${name}`
 
-  const toggle = () => {
-    const dark = !themeState.dark
-    localStorage.setItem("dark", JSON.stringify(dark))
-    setThemeState({ ...themeState, dark })
-  }
+        root.style.setProperty(cssVarName, colorByTheme[newValue])
+      })
 
-  const computedTheme = themeState.dark ? theme("dark") : theme("light")
+      rawSetColorMode(newValue)
+    }
+
+    return {
+      colorMode,
+      setColorMode,
+    }
+  }, [colorMode, rawSetColorMode])
 
   return (
-    <EmotionThemeProvider theme={computedTheme}>
-      <ThemeContext.Provider value={{ dark: themeState.dark, toggle }}>
-        {children}
-      </ThemeContext.Provider>
-    </EmotionThemeProvider>
+    <ThemeContext.Provider value={contextValue}>
+      {children}
+    </ThemeContext.Provider>
   )
 }
-
-export { ThemeProvider, useTheme }

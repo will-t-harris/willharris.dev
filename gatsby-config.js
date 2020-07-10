@@ -5,6 +5,7 @@ module.exports = {
     author: `Will Harris`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-layout`,
     `gatsby-remark-images`,

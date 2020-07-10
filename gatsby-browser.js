@@ -2,6 +2,7 @@ import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import tw, { css } from "twin.macro"
 import { ThemeProvider } from "./src/ThemeContext"
+import GlobalStyles from "./src/components/GlobalStyles"
 import "tailwindcss/dist/base.min.css"
 import "typeface-roboto-slab"
 import "typeface-inter"
@@ -36,8 +37,9 @@ const components = {
 
 export const wrapRootElement = ({ element }) => {
   return (
-    <MDXProvider components={components}>
-      <ThemeProvider>{element}</ThemeProvider>
-    </MDXProvider>
+    <ThemeProvider>
+      <GlobalStyles />
+      <MDXProvider components={components}>{element}</MDXProvider>
+    </ThemeProvider>
   )
 }

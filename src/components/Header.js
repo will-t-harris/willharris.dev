@@ -1,21 +1,16 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 import Switch from "react-switch"
-import { useTheme } from "../ThemeContext"
-import { themeDark, themeLight } from "../theme"
+import { ThemeContext } from "../ThemeContext"
 
 import { ChainIcon } from "../components/icons/chainIcon"
+import { DarkToggle } from "./DarkToggle"
 
-const Header = () => {
-  const themeState = useTheme()
-
+export const Header = () => {
   return (
-    <header
-      tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20"
-      css={[themeState.dark ? themeDark : themeLight]}
-    >
+    <header tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20">
       <nav
         tw="flex mx-auto"
         css={[
@@ -44,19 +39,7 @@ const Header = () => {
           <Link to="/projects" tw="mr-12">
             Projects
           </Link>
-          <Switch
-            tw="self-center"
-            onChange={themeState.toggle}
-            checked={themeState.dark}
-            aria-label="dark mode toggle button"
-            checkedIcon={false}
-            uncheckedIcon={false}
-            offColor="#323d79"
-            offHandleColor="#f4f9fc"
-            onColor="#f4f9fc"
-            onHandleColor="#272525"
-            handleDiameter={20}
-          />
+          <DarkToggle />
         </div>
       </nav>
     </header>
@@ -70,5 +53,3 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
-
-export default Header

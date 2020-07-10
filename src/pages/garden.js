@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import tw, { css } from "twin.macro"
 
