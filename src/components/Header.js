@@ -10,7 +10,6 @@ import { ChainIcon } from "../components/icons/chainIcon"
 
 const Header = () => {
   const darkMode = useDarkMode()
-  console.log(darkMode)
   return (
     <header
       tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20"
