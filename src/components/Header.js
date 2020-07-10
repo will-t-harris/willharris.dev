@@ -2,19 +2,19 @@ import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
-import Switch from "react-switch"
-import { useTheme } from "../ThemeContext"
-import { themeDark, themeLight } from "../theme"
+import useDarkMode from "use-dark-mode"
 
+import { themeLight, themeDark } from "../theme"
+import { DarkModeToggle } from "./DarkModeToggle"
 import { ChainIcon } from "../components/icons/chainIcon"
 
 const Header = () => {
-  const themeState = useTheme()
-
+  const darkMode = useDarkMode()
+  console.log(darkMode)
   return (
     <header
       tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20"
-      css={[themeState.dark ? themeDark : themeLight]}
+      css={[darkMode.value ? themeDark : themeLight]}
     >
       <nav
         tw="flex mx-auto"
@@ -44,19 +44,7 @@ const Header = () => {
           <Link to="/projects" tw="mr-12">
             Projects
           </Link>
-          <Switch
-            tw="self-center"
-            onChange={themeState.toggle}
-            checked={themeState.dark}
-            aria-label="dark mode toggle button"
-            checkedIcon={false}
-            uncheckedIcon={false}
-            offColor="#323d79"
-            offHandleColor="#f4f9fc"
-            onColor="#f4f9fc"
-            onHandleColor="#272525"
-            handleDiameter={20}
-          />
+          <DarkModeToggle />
         </div>
       </nav>
     </header>
