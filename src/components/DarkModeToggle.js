@@ -3,7 +3,7 @@ import Switch from "react-switch"
 import useDarkMode from "use-dark-mode"
 
 export const DarkModeToggle = () => {
-  const darkMode = useDarkMode(false)
+  const darkMode = useDarkMode()
 
   return (
     <Switch

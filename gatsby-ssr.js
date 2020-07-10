@@ -5,7 +5,7 @@ import "tailwindcss/dist/base.min.css"
 import "typeface-roboto-slab"
 import "typeface-inter"
 
-import CodeBlock from "./src/components/CodeBlock"
+import { CodeBlock } from "./src/components/CodeBlock"
 
 const components = {
   a: (props) => (
