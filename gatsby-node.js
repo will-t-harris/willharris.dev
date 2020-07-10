@@ -61,7 +61,7 @@ exports.createPages = async ({ actions: { createPage }, graphql }) => {
 
   data.bikes.nodes.forEach((node) => {
     createPage({
-      path: `/bike${node.frontmatter.path}`,
+      path: `/bikes${node.frontmatter.path}`,
       component: bikeTemplate,
       context: { slug: node.frontmatter.path },
     })

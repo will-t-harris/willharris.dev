@@ -1,18 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
-import useDarkMode from "use-dark-mode"
-
-import { themeLight, themeDark } from "../../theme"
 
 export const ChainIcon = () => {
-  const darkMode = useDarkMode()
   return (
     <svg
       width="91"
       height="91"
       xmlns="http://www.w3.org/2000/svg"
-      css={darkMode.value ? themeDark : themeLight}
       tw="transition ease-linear duration-100"
     >
       <g clipPath="url(#clip0)" tw="fill-current">

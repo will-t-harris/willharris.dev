@@ -5,7 +5,6 @@ module.exports = {
     author: `Will Harris`,
   },
   plugins: [
-    `gatsby-plugin-use-dark-mode`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-layout`,
     `gatsby-remark-images`,
@@ -16,7 +15,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 250,
+              maxWidth: 600,
             },
           },
         ],
