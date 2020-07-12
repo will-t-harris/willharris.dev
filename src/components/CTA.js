@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import tw, { css } from "twin.macro"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+import Tippy from "@tippyjs/react"
+import "tippy.js/dist/tippy.css"
+import "tippy.js/themes/material.css"
 
 export const CTA = () => {
   const [state, setState] = useState({
@@ -32,12 +35,18 @@ export const CTA = () => {
         </a>
         .
       </p>
-      <p tw="font-normal text-xl">
-        Social media not your thing? Shoot me an email:{" "}
-        <CopyToClipboard onCopy={onCopy} text={state.value}>
-          <span tw="text-pink-600 font-semibold">will@bikesandbytes.net</span>
-        </CopyToClipboard>
-      </p>
+      <Tippy
+        content={state.copied ? "Email copied" : "Click to copy email"}
+        theme="material"
+        hideOnClick={false}
+      >
+        <p tw="font-normal text-xl">
+          Social media not your thing? Shoot me an email:{" "}
+          <CopyToClipboard onCopy={onCopy} text={state.value}>
+            <span tw="text-pink-600 font-semibold">will@bikesandbytes.net</span>
+          </CopyToClipboard>
+        </p>
+      </Tippy>
     </footer>
   )
 }
