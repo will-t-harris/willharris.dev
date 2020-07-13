@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 
-import { ChainIcon } from "../components/icons/chainIcon"
+import { ChainIcon } from "../components/icons/ChainIcon"
 
 const Header = () => {
   return (
