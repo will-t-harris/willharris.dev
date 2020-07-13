@@ -14,6 +14,7 @@ const Garden = () => {
             path
             garden
             contentCategory
+            tags
           }
           id
         }
@@ -25,7 +26,10 @@ const Garden = () => {
 
   const searchResults = posts.filter((post) => {
     if (post.__typename === "Mdx" && post.frontmatter.garden === true) {
-      return post.frontmatter.title.toLowerCase().includes(filter.toLowerCase())
+      return (
+        post.frontmatter.title.toLowerCase().includes(filter.toLowerCase()) ||
+        post.frontmatter.tags.includes(filter.toLowerCase())
+      )
     }
   })
 
@@ -55,15 +59,22 @@ const Garden = () => {
         const title = frontmatter.title
         return (
           <div
-            className="mb-3 flex items-center  hover:bg-dark-bg p-2 rounded"
+            tw="mb-3 flex items-center hover:bg-pink-400 p-2 rounded border"
             key={index}
           >
-            <span className="mr-2"></span>
-            <h4 className="text-base">
-              <Link className="no-gradient" to="/">
-                {title}
-              </Link>
+            <h4 tw="text-lg">
+              <Link to="/">{title}</Link>
             </h4>
+            <div tw="flex flex-auto">
+              {frontmatter.tags.map((tag) => (
+                <span
+                  tw="text-sm ml-1 border px-1 rounded cursor-pointer"
+                  onClick={() => setFilter(tag)}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </div>
         )
       })}
