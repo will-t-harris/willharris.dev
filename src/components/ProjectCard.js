@@ -13,45 +13,45 @@ export const ProjectCard = ({
   npmUrl,
   liveUrl,
   pageUrl,
+  builtWith,
 }) => {
   return (
-    <section
-      tw="my-16 shadow-lg"
-      css={[
-        css`
-          height: 28.125rem;
-          width: 56.25rem;
-        `,
-      ]}
-    >
+    <section tw="my-4 lg:my-10 lg:shadow-lg lg:w-900">
       <div
-        tw="rounded-t overflow-hidden border border-pink-400 border-b-0"
+        tw="rounded-t overflow-hidden border border-pink-400 border-b-0 mx-auto h-32 lg:w-900 lg:h-64"
         css={[
           css`
-            height: 20rem;
+            width: 300px;
           `,
         ]}
       >
         {projectImage && (
           <Link to={pageUrl}>
-            <Img fixed={projectImage} />
+            <Img fluid={projectImage} />
           </Link>
         )}
       </div>
       <div
-        tw="rounded-b flex border border-pink-400"
+        tw="rounded-b flex flex-col lg:flex-row border border-pink-400 mx-auto h-auto lg:w-900 lg:h-32"
         css={[
           css`
-            height: 8.125rem;
+            width: 300px;
           `,
         ]}
       >
-        <CardButton buttonText="SOURCE" buttonUrl={sourceUrl} />
-        {npmUrl && <CardButton buttonText="NPM" buttonUrl={npmUrl} />}
-        {liveUrl && <CardButton buttonText="LIVE" buttonUrl={liveUrl} />}
-        <h2 tw="self-center justify-end ml-20 text-2xl font-bold">
+        <div tw="flex justify-center" css={[css``]}>
+          <CardButton buttonText="SOURCE" buttonUrl={sourceUrl} />
+          {npmUrl && <CardButton buttonText="NPM" buttonUrl={npmUrl} />}
+          {liveUrl && <CardButton buttonText="LIVE" buttonUrl={liveUrl} />}
+        </div>
+        <h2 tw="self-center justify-end mt-2 lg:w-64 lg:ml-8 text-2xl font-bold">
           <Link to={pageUrl}>{projectName}</Link>
         </h2>
+        <h3 tw="font-semibold ml-24 my-2">Built with:</h3>
+        <ul tw="flex flex-col flex-wrap list-disc lg:mt-6 pl-12 mr-32">
+          {builtWith &&
+            builtWith.map((item, index) => <li key={index}>{item}</li>)}
+        </ul>
       </div>
     </section>
   )

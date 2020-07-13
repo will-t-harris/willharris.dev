@@ -6,7 +6,7 @@ export const CardButton = ({ buttonText, buttonUrl }) => {
   return (
     <a
       css={[
-        tw`ml-4 p-2 self-center rounded text-xs font-bold tracking-wide bg-lightModeBlue text-darkModeText hover:bg-pink-400 hover:text-lightModeText`,
+        tw` mx-2 lg:ml-4 lg:mr-0 mt-2 lg:mt-0 p-2 self-center rounded text-xs font-bold tracking-wide bg-lightModeBlue text-darkModeText hover:bg-pink-400 hover:text-lightModeText`,
       ]}
       href={buttonUrl}
     >

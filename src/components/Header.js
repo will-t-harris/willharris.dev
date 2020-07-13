@@ -7,7 +7,7 @@ import { ChainIcon } from "../components/icons/chainIcon"
 
 const Header = () => {
   return (
-    <header tw="transition ease-linear duration-100 fixed w-full shadow-sm antialiased z-20 bg-lightModeBody text-lightModeText">
+    <header tw="transition ease-linear duration-100 fixed w-screen lg:w-full shadow-sm antialiased z-20 bg-lightModeBody text-lightModeText">
       <nav
         tw="flex mx-auto"
         css={[
@@ -20,20 +20,20 @@ const Header = () => {
           <ChainIcon />
         </Link>
         <div
-          tw="flex w-full justify-end self-center text-2xl"
+          tw="flex w-full lg:justify-end self-center text-lg lg:text-2xl"
           css={[
             css`
               font-family: roboto slab;
             `,
           ]}
         >
-          <Link to="/garden" tw="mr-12">
+          <Link to="/garden" tw="mr-2 lg:mr-12">
             Digital Garden
           </Link>
-          <Link to="/bikes" tw="mr-12">
+          <Link to="/bikes" tw="mr-2 lg:mr-12">
             Bikes
           </Link>
-          <Link to="/projects" tw="mr-12">
+          <Link to="/projects" tw="lg:mr-12">
             Projects
           </Link>
         </div>
