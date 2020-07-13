@@ -25,7 +25,7 @@ const Garden = () => {
   const { nodes: posts } = data.allMdx
 
   const searchResults = posts.filter((post) => {
-    if (post.__typename === "Mdx" && post.frontmatter.garden === true) {
+    if (post.__typename === "Mdx") {
       return (
         post.frontmatter.title.toLowerCase().includes(filter.toLowerCase()) ||
         post.frontmatter.tags.includes(filter.toLowerCase())
@@ -49,7 +49,7 @@ const Garden = () => {
     >
       <h1 tw="text-4xl mt-16 mb-10 font-extrabold">Digital Garden</h1>
       <input
-        tw="py-1 px-3 rounded-md mb-6 text-lg w-full"
+        tw="py-1 px-3 rounded-md shadow mb-16 text-lg w-full"
         value={filter}
         type="text"
         onChange={handleSearch}
@@ -58,17 +58,14 @@ const Garden = () => {
       {searchResults.map(({ frontmatter }, index) => {
         const title = frontmatter.title
         return (
-          <div
-            tw="mb-3 flex items-center hover:bg-pink-400 p-2 rounded border"
-            key={index}
-          >
+          <div tw="mb-3 hover:bg-pink-400 p-2 rounded border w-1/2" key={index}>
             <h4 tw="text-lg">
-              <Link to="/">{title}</Link>
+              <Link to={`/garden${frontmatter.path}`}>{title}</Link>
             </h4>
             <div tw="flex flex-auto">
               {frontmatter.tags.map((tag) => (
                 <span
-                  tw="text-sm ml-1 border px-1 rounded cursor-pointer"
+                  tw="text-sm italic ml-1 border px-2 py-1 mr-1 mt-1 rounded cursor-pointer bg-pink-400"
                   onClick={() => setFilter(tag)}
                 >
                   {tag}
