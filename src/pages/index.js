@@ -1,27 +1,103 @@
 import React from "react"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import tw, { css } from "twin.macro"
 
 import SEO from "../components/SEO"
 
-const IndexPage = () => (
-  <>
-    <SEO title="Home" />
-    <section
-      tw="flex flex-col py-56 mx-auto text-4xl font-semibold"
-      css={[
-        css`
-          width: 900px;
-          font-family: Inter;
-        `,
-      ]}
-    >
-      <h2 tw="mb-16">Hi, I'm Will</h2>
-      <p tw="mb-16">
-        I'm a software developer, content creator, and bikepacker from San
-        Francisco
-      </p>
-    </section>
-  </>
-)
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query homePageQuery {
+      allFile(
+        filter: {
+          childMdx: {
+            frontmatter: {
+              contentCategory: { eq: "post" }
+              garden: { eq: false }
+            }
+          }
+        }
+        sort: { fields: birthTime, order: ASC }
+        limit: 5
+      ) {
+        nodes {
+          childMdx {
+            frontmatter {
+              path
+              title
+              tags
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { nodes: posts } = data.allFile
+
+  return (
+    <>
+      <SEO title="Home" />
+      <section
+        tw="flex flex-col py-40 mx-auto lg:w-900"
+        css={[
+          css`
+            font-family: Inter;
+          `,
+        ]}
+      >
+        <h2 tw="mb-16 text-4xl font-bold">Hi, I'm Will</h2>
+        <p tw="mb-16 text-3xl font-medium">
+          I'm a software developer, content creator, and bikepacker from San
+          Francisco. I'm currently focused on{" "}
+          <a tw="text-pink-400 hover:underline" href="https://reactjs.org/">
+            React
+          </a>
+          ,{" "}
+          <a
+            tw="text-pink-400 hover:underline"
+            href="https://www.gatsbyjs.org/"
+          >
+            Gatsby
+          </a>
+          , and the{" "}
+          <a tw="text-pink-400 hover:underline" href="https://jamstack.org/">
+            Jamstack
+          </a>
+          .
+        </p>
+      </section>
+      <section tw="flex flex-col mx-auto lg:w-900">
+        <div tw="flex items-baseline">
+          <h2 tw="text-3xl font-bold">Recent posts</h2>
+          <Link tw="ml-auto text-xl hover:underline" to="/garden">
+            all posts
+          </Link>
+        </div>
+        <div tw="flex flex-col my-8">
+          {posts.map((post) => {
+            const { frontmatter } = post.childMdx
+            return (
+              <>
+                <Link
+                  tw="text-xl font-medium border border-b-0 px-3 pt-2"
+                  to={`/garden${frontmatter.path}`}
+                >
+                  {frontmatter.title}
+                </Link>
+                <div tw="flex border border-t-0 px-2 pb-4">
+                  {frontmatter.tags.map((tag) => (
+                    <span tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </>
+            )
+          })}
+        </div>
+      </section>
+    </>
+  )
+}
 
 export default IndexPage
