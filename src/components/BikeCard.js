@@ -10,7 +10,7 @@ export const BikeCard = ({ path, title, image, keywords }) => {
         <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200">
           {title}
         </h2>
-        <div tw="bg-gray-700 p-1">
+        <div tw="bg-gray-700 p-1 ml-4">
           {keywords.map((keyword) => (
             <span tw="mt-4 ml-2 text-white italic text-xs font-bold tracking-wide">
               {keyword}
