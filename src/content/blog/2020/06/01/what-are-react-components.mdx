@@ -4,11 +4,12 @@ title: "React: What Are React Components?"
 date: "2020-06-01"
 garden: false
 contentCategory: "post"
+tags: ["react"]
 ---
 
-[Last week we discussed how to render elements in React using JSX](/rendering-elements-with-jsx).
+[We previously discussed how to render elements in React using JSX](https://bikesandbytes.net/rendering-elements-with-jsx).
 
-This week I want to examine how we can use React's component-based approach to split our UI into separate, reusable pieces.
+Today I want to examine how we can use React's component-based approach to split our UI into separate, reusable pieces.
 
 ## What Are React Components?
 
@@ -24,13 +25,11 @@ function FavoriteColor(props) {
 
 In this example we've defined a function called `FavoriteColor`.
 
-We capitalize the first letter of the component to indicate to React that we are dealing with a custom component, rather than a DOM tag.
+We capitalize the first letter of the component to indicate to React that we are dealing with a React component here, rather than a DOM tag.
 
-We can pass anything to the component via props - here we are only expecting a `favoriteColor` value.
+We can pass anything to the component via props - here we are only expecting a `favoriteColor` value. It is important to note that the props argument is an object containing key/value pairs corresponding to the values passed into the component.
 
-It is important to note that the props argument is an object containing key/value pairs corresponding to the values passed into the component.
-
-We can then use the value that came in via props in the final h1 React element.
+We can then use the props value in the final h1 element.
 
 ```jsx
 function FavoriteColor(props) {
@@ -44,22 +43,19 @@ ReactDOM.render(element, document.getElementById("root")) // Assuming we have a 
 
 What happened in this example?
 
-1. We called `ReactDOM.render()` with the `<FavoriteColor favoriteColor="blue" />` component.
-   - Note that we can use `<FavoriteColor />` as a self-closing tag because it doesn't have any children, otherwise we would use opening/closing tags `<FavoriteColor></FavoriteColor>`.
-2. React calls the `FavoriteColor` function with `{favoriteColor: 'blue'}` as the props value.
-3. Our `FavoriteColor` function returns a `<h1>My favorite color is blue!</h1>` React element as a result.
-4. `ReactDOM` updates the DOM to match `<h1>My favorite color is blue!</h1>`.
+1.  We called `ReactDOM.render()` with the `<FavoriteColor favoriteColor="blue" />` component.
+    - Note that we can use `<FavoriteColor />` as a self-closing tag since it doesn't have any children, otherwise we could use `<FavoriteColor></FavoriteColor>`.
+2.  React calls the `FavoriteColor` function with `{favoriteColor: 'blue'}` as the props value.
+3.  Our `FavoriteColor` function returns a `<h1>My favorite color is blue!</h1>` React element as a result.
+4.  `ReactDOM` updates the DOM to match `<h1>My favorite color is blue!</h1>`.
 
 ## Where Do We Use React Components?
 
-In our previous exmaples, we directly passed a React element to `ReactDOM.render()`.
+In the previous example, we directly passed a React element to `ReactDOM.render()`.
 
 In most React applications we pass an `App` component that serves as a wrapper around our entire application to `ReactDOM`.
-
-By passing our entire application off to `ReactDom` we essentially allow React to deal with efficiently rendering and updating the visual state of our application.
-
-The `App` component will usually contain many different components that all deal with rendering different pieces of our UI.
-
+By passing our entire application off to `ReactDom` we allow React to deal with efficiently rendering and updating the visual state of our application.
+The `App` component will typically contain many different components that deal with rendering small pieces of our UI.
 We can nest components as deep as we'd like.
 
 ```jsx
@@ -86,7 +82,7 @@ Now, what is going on in this example?
 2. React calls the `<App />` function.
 3. As part of the `<App />` function's execution, each of the child `<FavoriteColor />` functions are executed.
 4. This time we're passing different props to each call to `<FavoriteColor />`, each returning a React element with a different value for `props.favoriteColor`.
-5. `ReactDOM` updates the DOM to display the result of all function calls.
+5. `ReactDOM` updates the DOM to display the result of these function calls.
 
 https://codepen.io/will_devs/pen/LYGPzbj#code-area
 
@@ -103,8 +99,8 @@ There is one fundamental [rule](https://reactjs.org/docs/components-and-props.ht
 1. They always return the same value when given the same arguments.
 2. Their evaluation has no side effects.
 
-In practice this means that React components _must never modify their props._
+In practice this means that React components _must never modify their own props._
 
 But, we know that modern UIs are dynamic. How are we supposed to display dynamic data using _read-only_ values coming in as props?
 
-Next we will cover React state, a feature that allows us to change the output of components over time in response to different events
+[Next we will cover React state](https://bikesandbytes.net/what-is-react-state), a feature that allows us to change the output of components over time in response to changes in our application's data.
