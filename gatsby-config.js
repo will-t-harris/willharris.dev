@@ -5,6 +5,12 @@ module.exports = {
     author: `Will Harris`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: "willharris",
+      },
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-layout`,
     `gatsby-remark-images`,
