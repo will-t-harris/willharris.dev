@@ -49,7 +49,9 @@ const Projects = () => {
         `,
       ]}
     >
-      <h1 tw="text-4xl mt-10 font-bold text-center lg:text-left">Projects</h1>
+      <h1 tw="text-4xl mt-10 font-extrabold text-center lg:text-left">
+        Projects
+      </h1>
       <ProjectCard
         projectName="ABQ Bike Trails"
         projectImage={data.abqBikeTrails.childImageSharp.fluid}

@@ -43,7 +43,7 @@ const Garden = () => {
         `,
       ]}
     >
-      <h1 tw="text-4xl mt-16 mb-10 font-bold">Digital Garden</h1>
+      <h1 tw="text-4xl mt-16 mb-10 font-extrabold">Digital Garden</h1>
       <input
         tw="py-1 px-3 rounded-md mb-6 text-lg w-full"
         value={filter}
