@@ -79,18 +79,19 @@ const IndexPage = () => {
             return (
               <>
                 <Link
-                  tw="text-xl font-medium border border-b-0 px-3 pt-2"
+                  className="group"
+                  tw="text-xl font-medium  px-3 pt-2 rounded hover:bg-pink-400"
                   to={`/garden${frontmatter.path}`}
                 >
                   {frontmatter.title}
+                  <div tw="flex pb-4">
+                    {frontmatter.tags.map((tag) => (
+                      <span tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hover:bg-lightModeBody tracking-wide">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </Link>
-                <div tw="flex border border-t-0 px-2 pb-4">
-                  {frontmatter.tags.map((tag) => (
-                    <span tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
               </>
             )
           })}
