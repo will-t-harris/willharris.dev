@@ -44,7 +44,7 @@ export const ProjectCard = ({
           {npmUrl && <CardButton buttonText="NPM" buttonUrl={npmUrl} />}
           {liveUrl && <CardButton buttonText="LIVE" buttonUrl={liveUrl} />}
         </div>
-        <h2 tw="self-center justify-end mt-2 lg:w-64 lg:ml-8 text-2xl font-bold">
+        <h2 tw="self-center justify-end mt-2 lg:mt-0 lg:w-64 lg:ml-8 text-2xl font-bold">
           <Link to={pageUrl}>{projectName}</Link>
         </h2>
         <h3 tw="font-semibold ml-24 my-2">Built with:</h3>
