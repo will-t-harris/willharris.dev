@@ -4,19 +4,20 @@ title: "React: Rendering Elements with JSX"
 date: "2020-05-25"
 garden: true
 contentCategory: "post"
+tags: ["react"]
 ---
 
-[Last week we introduced JSX](/jsx-basics) and discussed how it is a syntax extension to JavaScript that makes life easier when writing HTML and JavaScript in React.
+[Last week we introduced JSX](https://bikesandbytes.net/jsx-basics) and discussed how it is a syntax extension to JavaScript that makes life easier when writing React code.
 
-Today, let's talk about how we can use JSX to render elements in the DOM.
+Today, let's talk about how we can use JSX to render elements to the DOM.
 
 ## React Elements in the DOM
 
 [The DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) is an abstract representation of a document as a logical tree in memory.
 
-In regular JavaScript, we typically access and change, or _mutate_, nodes on the tree directly using methods like `document.querySelector()`, `document.appendChild()`, and `document.removeChild()`. This involves traversing the DOM and directly changing elements in the tree.
+In regular JavaScript we typically access and change, or _mutate_, nodes on the tree using methods like `document.querySelector()`, `document.appendChild()`, and `document.removeChild()`. This involves traversing the DOM and directly changing elements in the tree.
 
-So, if we wanted to insert a header into our HTML document using JavaScript we would do something like:
+So, if we wanted to insert a header into our HTML document using JavaScript we would do something like this:
 
 ```javascript
 // Assuming that we have a <div> element in our HTML document with an id of 'root'
@@ -33,12 +34,14 @@ Unfortunately this process is relatively slow and inefficient, particularly in l
 React does things a little differently. Rather than directly interacting with the DOM, in React we pass all of our DOM nodes to the `ReactDOM.render()` method:
 
 ```jsx
-ReactDom.render(element, container[, callback])
+ReactDOM.render(element, container[, callback])
 ```
 
-The `render()` method takes the element that we want to render, and the container DOM node that we want to render into.
+The `render()` method takes the element that we want to render to the DOM, and the container node that we want to render into.
 
 We can also pass an _optional_ callback function to the `render()` method, which will be executed after the element is rendered or updated.
+
+> `ReactDOM` serves as the glue between React and the DOM. All of the `ReactDOM` functionality shipped in the main React package at first, but was split into its own package in version 0.14 to allow the use of React in different contexts than just the DOM (like [react-native](https://reactnative.dev/), for example).
 
 The simplest example of how this plays out can be found in [the React docs](https://reactjs.org/docs/rendering-elements.html#rendering-an-element-into-the-dom):
 
@@ -61,8 +64,8 @@ In practice, we usually make one call to `ReactDOM.render()` as our application 
 
 > `ReactDOM.render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
 
-In other words, when we pass elements off to `ReactDOM.render()` we are allowing React to act as our interface between the browser's DOM and the elements that we are writing in JSX.
+In other words, when we pass elements off to `ReactDOM.render()` we are allowing React to deal with interfacing between the browser's DOM and the elements that we are writing in JSX.
 
 As the state of our application changes, React deals with efficiently updating only the pieces of the DOM that _must_ be changed using its 'diffing algorithm.'
 
-Because we can rely on React to do this efficiently, we no longer need to directly traverse the browser's DOM nodes with JavaScript to _mutate_ values. **This is a big part of React's secret sauce**, and we will spend much more time examining how exactly this happens in future posts.
+Because we can rely on React to deal with this efficiently, we no longer need to directly traverse the browser's DOM nodes with JavaScript to mutate values in our UI.
