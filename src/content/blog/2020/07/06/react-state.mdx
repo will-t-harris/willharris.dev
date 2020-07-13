@@ -1,0 +1,126 @@
+---
+path: "/what-is-react-state"
+title: "What is React State?"
+date: "2020-07-06"
+garden: true
+contentCategory: "post"
+tags: ["react"]
+---
+
+One of the most fundamental concepts in React is state. Before diving into the differences between props and state in React, it is important to note the ways in which they overlap.
+
+- Props and state are both ultimately plain old JavaScript objects.
+- Changes to either props or state trigger a re-render for the pieces of the application that were affected by the change.
+- Props and state are both deterministic. A component **must** generate the same output for the same combination of props and state. (See [our previous discussion](https://bikesandbytes.net/what-are-react-components) of components as [pure functions](https://en.wikipedia.org/wiki/Pure_function).)
+
+All applications have state: a checkbox is checked or unchecked, a link is visited or not, an input has a current value or it is empty, etc. React's state objects give us a place to track of all of these values while the component exists on the page.
+
+In other words, state contains all of the information about how an application looks at any given point in time. To change the visual state of a React application, we apply changes to the state object.
+
+Three important things to note about react state:
+
+1. Do not modify (mutate) state directly
+2. State is not accessible to any component other than the one that owns and sets it
+3. A component can pass state down via props to child components
+
+---
+
+Since the release of React v16.8, we've had a simple way to instantiate state in React components using the `useState` hook.
+
+> We haven't discussed React hooks quite yet, but for now we can think of them as functions provided by the React library for doing stuff in our components.
+
+In this example, let's assume that we're dealing with a page that can be toggled between light mode and dark mode. On the initial page load, we want to default to light mode. We can instantiate this state like this:
+
+```jsx
+const [darkMode, setDarkmode] = useState(false)
+```
+
+The `useState` hook returns an array with the initial value passed into `useState`&mdash;`false` in this example&mdash;and a 'setter' function that is used to update our state.
+
+It's common practice to use [ES6 destructuring syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) to extract these two values immediately. Here `darkMode` holds our current state value, `false`, and `setDarkMode` holds our setter function that will be used to update the state value.
+
+Without destructuring, the `useState` hook return looks like this:
+
+```jsx
+[false, function dispatchAction()]
+```
+
+We could use this array directly, but destructuring the values out makes state nicer to deal with. Easier to hold, if you will.
+
+To trigger a change to dark mode in this example, we might naturally try taking the `darkMode` value and directly setting it to `true`:
+
+```jsx
+darkMode = true
+```
+
+This works, but it violates one of the "rules" of state from above, namely "do not modify (mutate) state directly." By mutating the state directly we would be circumventing the one-way flow of data, which is an important React pattern that ensures efficient and error-free UI updates.
+
+The correct way to update this value is to use the `setDarkMode` setter function that was created for us by the `useState` hook.
+
+```jsx
+setDarkMode(!darkMode)
+```
+
+This approach signals to React "We're changing this state value! Re-render anything that's affected by this change!"
+
+There's some nuance to using the `setState` setter functions like we just did. Namely, _React state updates are asynchronous_. If we try to read `darkMode` immediately after calling `setDarkMode`, it probably won't show the new changes yet.
+
+React enqueues the update operation and performs it after the component has been re-rendered. If we want to use the previous state value to update our state, we should create a [closure](<https://en.wikipedia.org/wiki/Closure_(computer_programming)>) around the previous state value by passing it into a function in our `setDarkMode` call.
+
+```jsx
+setDarkMode((prevState) => setDarkMode(!prevState))
+```
+
+---
+
+Let's pull all of this together with a concrete example in React:
+
+https://codesandbox.io/s/dark-mode-final-react-8dxfy?file=/src/index.js
+
+Here I've thrown together a bare-bones React application with a single page to demonstrate one method of using state to trigger a dark/light mode switch.
+
+I first instantiate the state object with its initial value:
+
+```jsx
+const [darkMode, setDarkMode] = useState(false)
+```
+
+Because the state value is a boolean, I can use the current value of the boolean to conditionally apply different classes to the HTML. I'm using the `dark-mode` and `light-mode` classes to apply different `background-color` and `color` values:
+
+```css
+.light-mode {
+  background-color: #fff;
+  color: #333;
+  transition: background-color 0.25s ease-out;
+}
+
+.dark-mode {
+  background-color: #1a1919;
+  color: #999;
+}
+```
+
+I use a ternary statement on the `div` containing the application to conditionally apply one of these classes depending on the current boolean value held in state:
+
+```jsx
+<div className={darkMode ? "dark-mode" : "light-mode"}>// Application code</div>
+```
+
+But how do I trigger a change in the `darkMode` state value? I've added an `input` element that has an `onChange` event handler:
+
+```jsx
+<input
+  onChange={() => setDarkMode((prevMode) => !prevMode)}
+  // Other element properties
+/>
+```
+
+> [Events](https://reactjs.org/docs/handling-events.html) are handled a bit differently in React than in vanilla JavaScript. They are all wrapped by React's SyntheticEvent wrapper to make events work consistently across browsers. Here, the `onChange` operates the same as an [`InputEvent`](https://developer.mozilla.org/en-US/docs/Web/API/InputEvent)
+
+In the event handler, I'm passing an arrow function that will be fired every time an `onChange` event occurs. When this function is fired, it will pass the current state value to `setDarkMode` and return the opposite value in the new state object.
+
+So in the base case, where we started with `darkMode` equal to `false`, once the `onChange` event fires `darkMode` will equal `true`. This change in the state value causes a re-render of our application with the new state value, causing our ternary operators to return different values. This behavior drives the toggle between light mode and dark mode.
+
+---
+
+This is a fairly basic example of how we can use React state to declaratively change our UI. Rather than making imperative changes&mdash;where we check what is currently on the screen and orient our changes based on that information&mdash;in React we declare that `darkMode` is currently `true`, and React changes the UI to reflect that. It's a powerful pattern that can be built upon to create complex and predictable interfaces.
