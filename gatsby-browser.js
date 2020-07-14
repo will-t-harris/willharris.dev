@@ -11,6 +11,12 @@ const components = {
   a: (props) => (
     <a tw="text-pink-600 font-semibold hover:text-pink-700" {...props} />
   ),
+  blockquote: (props) => (
+    <blockquote
+      tw="px-2 mx-6 bg-lightModeBody border-l-4 border-gray-600 italic"
+      {...props}
+    />
+  ),
   code: CodeBlock,
   h2: (props) => <h2 tw="text-2xl font-bold" {...props} />,
   h3: (props) => <h3 tw="text-xl font-bold" {...props} />,
