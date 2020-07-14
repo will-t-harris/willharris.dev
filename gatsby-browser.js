@@ -26,7 +26,7 @@ const components = {
   ),
   li: (props) => <li tw="text-xl mb-4 mx-auto w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
-  p: (props) => <p tw="leading-relaxed mb-10 text-xl" {...props} />,
+  p: (props) => <p tw="leading-relaxed mb-8 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
