@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Bikes and Bytes`,
-    description: ``,
+    title: `willharris.dev`,
+    description: `Will Harris' personal website and blog. A corner of the internet to collect my thoughts about programming, technology, and bicycles.`,
     author: `Will Harris`,
+    siteUrl: `https://www.willharris.dev`,
   },
   plugins: [
     {
