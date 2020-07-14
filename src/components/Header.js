@@ -5,7 +5,7 @@ import tw, { css } from "twin.macro"
 
 import { ChainIcon } from "../components/icons/ChainIcon"
 
-const Header = () => {
+export const Header = () => {
   return (
     <header tw="transition ease-linear duration-100 fixed w-screen lg:w-full shadow-sm antialiased z-20 bg-lightModeBody text-lightModeText">
       <nav tw="flex mx-auto lg:w-900">
@@ -42,5 +42,3 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
-
-export default Header

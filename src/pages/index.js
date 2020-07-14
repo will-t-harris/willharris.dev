@@ -2,7 +2,7 @@ import React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import tw, { css } from "twin.macro"
 
-import SEO from "../components/SEO"
+import { SEO } from "../components/SEO"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`

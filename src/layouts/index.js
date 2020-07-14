@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import tw, { css } from "twin.macro"
 
-import Header from "../components/Header"
+import { Header } from "../components/Header"
+import { Footer } from "../components/Footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
       <main tw="flex flex-col pt-20 transition ease-linear duration-100 antialiased bg-lightModeBody text-lightModeText min-h-screen">
         {children}
       </main>
+      <Footer />
     </>
   )
 }
