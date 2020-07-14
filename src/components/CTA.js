@@ -43,7 +43,9 @@ export const CTA = () => {
         <p tw="font-normal text-xl">
           Social media not your thing? Shoot me an email:{" "}
           <CopyToClipboard onCopy={onCopy} text={state.value}>
-            <span tw="text-pink-600 font-semibold">will@bikesandbytes.net</span>
+            <span tw="text-pink-600 font-semibold cursor-pointer">
+              will@bikesandbytes.net
+            </span>
           </CopyToClipboard>
         </p>
       </Tippy>
