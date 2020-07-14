@@ -42,7 +42,7 @@ const Bikes = () => {
   `)
   return (
     <section
-      tw="flex flex-col mx-auto w-64 lg:w-600"
+      tw="flex flex-col mx-auto lg:mx-auto w-64 lg:w-600"
       css={[
         css`
           font-family: Inter;
