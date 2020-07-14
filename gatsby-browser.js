@@ -15,10 +15,19 @@ const components = {
   h2: (props) => <h2 tw="text-2xl font-bold" {...props} />,
   h3: (props) => <h3 tw="text-xl font-bold" {...props} />,
   img: (props) => <img {...props} />,
+  kbd: (props) => (
+    <kbd tw="bg-pink-400 text-lightModeText rounded p-2" {...props} />
+  ),
   li: (props) => <li tw="text-xl mb-4 mx-auto w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
   p: (props) => <p tw="leading-relaxed mb-10 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
+  table: (props) => <table tw="mb-6 mx-auto" {...props} />,
+  td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
+  th: (props) => (
+    <th tw="px-2 py-1 border border-gray-400 bg-lightModeBody" {...props} />
+  ),
+  tr: (props) => <tr tw="odd:bg-gray-400" {...props} />,
   ul: (props) => <ul tw="list-disc" {...props} />,
   wrapper: (props) => (
     <article
