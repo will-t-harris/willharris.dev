@@ -5,12 +5,15 @@ import tw from "twin.macro"
 
 export const BikeCard = ({ path, title, image, keywords }) => {
   return (
-    <div tw="flex flex-col lg:grid lg:grid-cols-2 lg:border-b bg-gray-200">
+    <div
+      className="group"
+      tw="flex flex-col lg:grid lg:grid-cols-2 lg:border-b bg-gray-200 hover:bg-pink-400"
+    >
       <Link to={path}>
-        <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200">
+        <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200 group-hover:bg-pink-400">
           {title}
         </h2>
-        <div tw="bg-gray-700 p-1 ml-4">
+        <div tw="bg-gray-700 p-1 lg:ml-4">
           {keywords.map((keyword) => (
             <span tw="mt-4 ml-2 text-white italic text-xs font-bold tracking-wide">
               {keyword}
@@ -18,7 +21,10 @@ export const BikeCard = ({ path, title, image, keywords }) => {
           ))}
         </div>
       </Link>
-      <Link tw="flex border-b lg:border-0 w-full bg-gray-200" to={path}>
+      <Link
+        tw="flex border-b lg:border-0 w-full bg-gray-200 group-hover:bg-pink-400"
+        to={path}
+      >
         <Img
           tw="mx-auto lg:mr-4 my-4 rounded-lg"
           objectFit="right"
