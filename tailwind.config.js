@@ -7,6 +7,9 @@ module.exports = {
         lightModeBlue: "#323d79",
         darkModeBody: "#272525",
       },
+      borderColor: {
+        lightModeText: "#323d79",
+      },
       textColor: {
         lightModeText: "#323d79",
         darkModeText: "#f4f9fc",
