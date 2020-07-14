@@ -38,17 +38,22 @@ const IndexPage = () => {
     <>
       <SEO title="Home" />
       <section
-        tw="flex flex-col py-40 mx-auto lg:w-900"
+        tw="flex flex-col py-12 lg:py-40 mx-auto w-auto lg:w-900"
         css={[
           css`
             font-family: Inter;
           `,
         ]}
       >
-        <h2 tw="mb-16 text-4xl font-bold">Hi, I'm Will</h2>
-        <p tw="mb-16 text-3xl font-medium">
+        <h2 tw="mb-8 lg:mb-16 mx-auto lg:mx-0 text-4xl font-bold">
+          Hi, I'm Will
+        </h2>
+        <p tw="mb-8 lg:mb-16 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
           I'm a software developer, content creator, and bikepacker from San
-          Francisco. I'm currently focused on{" "}
+          Francisco.{" "}
+        </p>
+        <p tw="lg:mb-16 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
+          I'm currently focused on{" "}
           <a tw="text-pink-400 hover:underline" href="https://reactjs.org/">
             React
           </a>
@@ -67,13 +72,13 @@ const IndexPage = () => {
         </p>
       </section>
       <section tw="flex flex-col mx-auto lg:w-900">
-        <div tw="flex items-baseline">
-          <h2 tw="text-3xl font-bold">Recent posts</h2>
+        <div tw="px-8 lg:px-0 flex items-baseline">
+          <h2 tw=" text-3xl font-bold">Recent posts</h2>
           <Link tw="ml-auto text-xl hover:underline" to="/garden">
             all posts
           </Link>
         </div>
-        <div tw="flex flex-col my-8">
+        <div tw="flex flex-col my-8 px-8 lg:px-0">
           {posts.map((post) => {
             const { frontmatter } = post.childMdx
             return (
