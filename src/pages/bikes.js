@@ -21,7 +21,9 @@ const Bikes = () => {
           ...GatsbyImageSharpFixed
         }
       }
-      konaUnit: imageSharp(fixed: { originalName: { eq: "kona-unit.jpg" } }) {
+      konaUnit: imageSharp(
+        fixed: { originalName: { eq: "kona-unit-01.jpg" } }
+      ) {
         fixed(width: 160, height: 160) {
           ...GatsbyImageSharpFixed
         }
