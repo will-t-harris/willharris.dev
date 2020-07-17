@@ -38,14 +38,7 @@ const Garden = () => {
   }
 
   return (
-    <section
-      tw="flex flex-col mx-auto w-auto lg:w-900"
-      css={[
-        css`
-          font-family: Inter;
-        `,
-      ]}
-    >
+    <section tw="flex flex-col mx-auto w-auto lg:w-900">
       <h1 tw="text-4xl mx-auto lg:ml-0 mt-16 mb-10 font-extrabold">
         Digital Garden
       </h1>

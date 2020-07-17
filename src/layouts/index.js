@@ -20,7 +20,14 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main tw="flex flex-col pt-20 transition ease-linear duration-100 antialiased bg-lightModeBody text-lightModeText min-h-screen">
+      <main
+        tw="flex flex-col pt-20 transition ease-linear duration-100 antialiased bg-lightModeBody text-lightModeText min-h-screen"
+        css={[
+          css`
+            font-family: Inter;
+          `,
+        ]}
+      >
         {children}
       </main>
       <Footer />

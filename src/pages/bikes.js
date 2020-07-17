@@ -43,14 +43,7 @@ const Bikes = () => {
     }
   `)
   return (
-    <section
-      tw="flex flex-col mx-auto lg:mx-auto w-64 lg:w-600"
-      css={[
-        css`
-          font-family: Inter;
-        `,
-      ]}
-    >
+    <section tw="flex flex-col mx-auto lg:mx-auto w-64 lg:w-600">
       <h1 tw="text-4xl mt-16 mb-10 font-extrabold">My (Current) Bike Herd</h1>
       <div tw="flex flex-col justify-around border border-b-0 rounded-lg">
         <BikeCard

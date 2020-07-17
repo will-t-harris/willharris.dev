@@ -37,14 +37,7 @@ const IndexPage = () => {
   return (
     <>
       <SEO title="Home" />
-      <section
-        tw="flex flex-col py-12 lg:py-40 mx-auto w-auto lg:w-900"
-        css={[
-          css`
-            font-family: Inter;
-          `,
-        ]}
-      >
+      <section tw="flex flex-col py-12 lg:py-40 mx-auto w-auto lg:w-900">
         <h2 tw="mb-8 lg:mb-16 mx-auto lg:mx-0 text-4xl font-bold">
           Hi, I'm Will
         </h2>

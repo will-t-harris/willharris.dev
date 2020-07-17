@@ -41,14 +41,7 @@ const Projects = () => {
   `)
 
   return (
-    <section
-      tw="flex flex-col mx-auto w-screen lg:w-900"
-      css={[
-        css`
-          font-family: Inter;
-        `,
-      ]}
-    >
+    <section tw="flex flex-col mx-auto w-screen lg:w-900">
       <h1 tw="text-4xl mt-10 font-extrabold text-center lg:text-left">
         Projects
       </h1>
