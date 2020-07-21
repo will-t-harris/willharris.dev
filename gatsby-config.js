@@ -4,6 +4,7 @@ module.exports = {
     description: `Will Harris' personal website and blog. A corner of the internet to collect my thoughts about programming, technology, and bicycles.`,
     author: `Will Harris`,
     siteUrl: `https://www.willharris.dev`,
+    keywords: ["blog", "javascript"],
   },
   plugins: [
     {
