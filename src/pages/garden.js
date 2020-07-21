@@ -5,7 +5,7 @@ import tw, { css } from "twin.macro"
 import { SEO } from "../components/SEO"
 
 const Garden = ({ path }) => {
-  const [filter, setFilter] = useState("")
+  const [state, setState] = useState({ filteredData: [], query: "" })
   const data = useStaticQuery(graphql`
     query gardenQuery {
       allMdx(filter: { frontmatter: { contentCategory: { eq: "post" } } }) {
@@ -24,19 +24,22 @@ const Garden = ({ path }) => {
     }
   `)
 
-  const { nodes: posts } = data.allMdx
+  const allPosts = data.allMdx.nodes
+  const { filteredData, query } = state
+  const hasSearchResults = filteredData && query !== ""
+  const posts = hasSearchResults ? filteredData : allPosts
 
-  const searchResults = posts.filter((post) => {
-    if (post.__typename === "Mdx") {
+  const handleInputChange = (event) => {
+    const query = event.target.value
+    const posts = data.allMdx.nodes || []
+    const filteredData = posts.filter((post) => {
+      const { title, tags } = post.frontmatter
       return (
-        post.frontmatter.title.toLowerCase().includes(filter.toLowerCase()) ||
-        post.frontmatter.tags.includes(filter.toLowerCase())
+        title.toLowerCase().includes(query.toLowerCase()) ||
+        (tags && tags.join("").toLowerCase().includes(query.toLowerCase()))
       )
-    }
-  })
-
-  const handleSearch = (event) => {
-    setFilter(event.target.value)
+    })
+    setState({ query, filteredData })
   }
 
   return (
@@ -48,27 +51,29 @@ const Garden = ({ path }) => {
         </h1>
         <input
           tw="mx-8 lg:mx-0 py-1 px-3 rounded-md shadow mb-16 text-lg"
-          value={filter}
+          value={state.query}
           type="text"
-          onChange={handleSearch}
+          onChange={handleInputChange}
           placeholder="Looking for something?"
         />
-        {searchResults.map(({ frontmatter }, index) => {
-          const title = frontmatter.title
+        {posts.map((post) => {
           return (
             <div
               className="group"
               tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 p-2 rounded border w-1/2"
-              key={index}
+              key={post.id}
             >
               <h4 tw="text-lg">
-                <Link to={`/garden${frontmatter.path}`}>{title}</Link>
+                <Link to={`/garden${post.frontmatter.path}`}>
+                  {post.frontmatter.title}
+                </Link>
               </h4>
               <div tw="flex flex-auto">
-                {frontmatter.tags.map((tag) => (
+                {post.frontmatter.tags.map((tag, index) => (
                   <span
+                    key={`${post.id}-${index}`}
                     tw="text-sm italic ml-1 border px-2 py-1 mr-1 mt-1 rounded cursor-pointer bg-pink-400 group-hover:bg-lightModeBody"
-                    onClick={() => setFilter(tag)}
+                    onClick={() => setState({ ...state, query: tag })}
                   >
                     {tag}
                   </span>
