@@ -3,13 +3,15 @@ import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import tw from "twin.macro"
 
-const Bike = ({ data }) => {
+import { SEO } from "../components/SEO"
+
+const Bike = ({ data, path }) => {
+  const { title } = data.mdx.frontmatter
   return (
     <>
+      <SEO title={title} pathname={path} />
       <article tw="flex flex-col">
-        <h1 tw="text-4xl font-bold text-center my-16">
-          {data.mdx.frontmatter.title}
-        </h1>
+        <h1 tw="text-4xl font-bold text-center my-16">{title}</h1>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </article>
     </>

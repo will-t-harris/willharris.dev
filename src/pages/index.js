@@ -4,7 +4,7 @@ import tw, { css } from "twin.macro"
 
 import { SEO } from "../components/SEO"
 
-const IndexPage = () => {
+const IndexPage = ({ path }) => {
   const data = useStaticQuery(graphql`
     query homePageQuery {
       allFile(
@@ -37,7 +37,7 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Home" />
+      <SEO title="Home" pathname={path} />
       <section tw="flex flex-col py-12 lg:py-40 mx-auto w-auto lg:w-900">
         <h2 tw="mb-8 lg:mb-16 mx-auto lg:mx-0 text-4xl font-bold">
           Hi, I'm Will
