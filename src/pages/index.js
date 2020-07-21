@@ -20,6 +20,7 @@ const IndexPage = () => {
         limit: 5
       ) {
         nodes {
+          id
           childMdx {
             frontmatter {
               path
@@ -75,22 +76,26 @@ const IndexPage = () => {
           {posts.map((post) => {
             const { frontmatter } = post.childMdx
             return (
-              <>
-                <Link
-                  className="group"
-                  tw="text-xl font-medium  pr-3 pt-2 rounded hover:bg-pink-400"
-                  to={`/garden${frontmatter.path}`}
-                >
-                  {frontmatter.title}
-                  <div tw="flex pb-4">
-                    {frontmatter.tags.map((tag) => (
-                      <span tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hover:bg-lightModeBody tracking-wide">
+              <Link
+                className="group"
+                key={post.id}
+                tw="text-xl font-medium  pr-3 pt-2 rounded hover:bg-pink-400"
+                to={`/garden${frontmatter.path}`}
+              >
+                {frontmatter.title}
+                <div tw="flex pb-4">
+                  {frontmatter.tags.map((tag, index) => {
+                    return (
+                      <span
+                        key={`${post.id}-${index}`}
+                        tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hover:bg-lightModeBody tracking-wide"
+                      >
                         {tag}
                       </span>
-                    ))}
-                  </div>
-                </Link>
-              </>
+                    )
+                  })}
+                </div>
+              </Link>
             )
           })}
         </div>
