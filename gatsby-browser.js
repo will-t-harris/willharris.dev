@@ -35,17 +35,7 @@ const components = {
   ),
   tr: (props) => <tr tw="odd:bg-gray-400" {...props} />,
   ul: (props) => <ul tw="list-disc" {...props} />,
-  wrapper: (props) => (
-    <article
-      tw="mx-auto"
-      css={[
-        css`
-          width: 900px;
-        `,
-      ]}
-      {...props}
-    />
-  ),
+  wrapper: (props) => <article tw="mx-auto lg:w-900" {...props} />,
 }
 
 export const wrapRootElement = ({ element }) => {
