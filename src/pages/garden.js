@@ -8,7 +8,10 @@ const Garden = ({ path }) => {
   const [state, setState] = useState({ filteredData: [], query: "" })
   const data = useStaticQuery(graphql`
     query gardenQuery {
-      allMdx(filter: { frontmatter: { contentCategory: { eq: "post" } } }) {
+      allMdx(
+        filter: { frontmatter: { contentCategory: { eq: "post" } } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         nodes {
           __typename
           frontmatter {
@@ -72,8 +75,7 @@ const Garden = ({ path }) => {
                 {post.frontmatter.tags.map((tag, index) => (
                   <span
                     key={`${post.id}-${index}`}
-                    tw="text-sm italic ml-1 border px-2 py-1 mr-1 mt-1 rounded cursor-pointer bg-pink-400 group-hover:bg-lightModeBody"
-                    onClick={() => setState({ ...state, query: tag })}
+                    tw="text-sm italic ml-1 border px-2 py-1 mr-1 mt-1 rounded bg-pink-400 group-hover:bg-lightModeBody"
                   >
                     {tag}
                   </span>
