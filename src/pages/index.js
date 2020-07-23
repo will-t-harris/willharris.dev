@@ -12,12 +12,11 @@ const IndexPage = ({ path }) => {
           childMdx: {
             frontmatter: {
               contentCategory: { eq: "post" }
-              garden: { eq: false }
+              frontPage: { eq: true }
             }
           }
         }
-        sort: { fields: birthTime, order: ASC }
-        limit: 5
+        sort: { fields: changeTime, order: DESC }
       ) {
         nodes {
           id

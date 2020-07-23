@@ -17,7 +17,6 @@ const Garden = ({ path }) => {
           frontmatter {
             title
             path
-            garden
             contentCategory
             tags
           }
