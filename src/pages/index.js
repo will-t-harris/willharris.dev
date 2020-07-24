@@ -78,7 +78,7 @@ const IndexPage = ({ path }) => {
               <Link
                 className="group"
                 key={post.id}
-                tw="text-xl font-medium  pr-3 pt-2 rounded hover:bg-pink-400"
+                tw="text-xl font-medium  px-4 pt-2 rounded hover:bg-pink-400"
                 to={`/garden${frontmatter.path}`}
               >
                 {frontmatter.title}
