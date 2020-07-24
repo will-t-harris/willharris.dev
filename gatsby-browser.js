@@ -21,6 +21,9 @@ const components = {
   h2: (props) => <h2 tw="text-2xl font-bold" {...props} />,
   h3: (props) => <h3 tw="text-xl font-bold" {...props} />,
   img: (props) => <img {...props} />,
+  inlineCode: (props) => (
+    <code tw="bg-gray-700 text-gray-200 rounded p-1" {...props} />
+  ),
   kbd: (props) => (
     <kbd tw="bg-pink-400 text-lightModeText rounded p-2" {...props} />
   ),
