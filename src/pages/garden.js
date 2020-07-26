@@ -48,7 +48,7 @@ const Garden = ({ path }) => {
     <>
       <SEO title="Digital Garden" pathname={path} />
       <section tw="flex flex-col mx-auto w-auto lg:w-900">
-        <h1 tw="text-4xl mx-auto lg:ml-0 mt-16 mb-10 font-extrabold">
+        <h1 tw="text-4xl mx-auto lg:ml-0 mt-12 mb-10 font-extrabold">
           Digital Garden
         </h1>
         <input
