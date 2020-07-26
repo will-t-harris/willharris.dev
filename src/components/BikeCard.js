@@ -1,16 +1,17 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import tw from "twin.macro"
+import tw, { css } from "twin.macro"
 
-export const BikeCard = ({ path, title, image, keywords }) => {
+export const BikeCard = ({ path, title, image, keywords, twClasses }) => {
   return (
     <div
       className="group"
-      tw="flex flex-col lg:grid lg:grid-cols-2 lg:border-b bg-gray-200 hover:bg-pink-400"
+      tw="flex flex-col bg-gray-200 lg:grid lg:grid-cols-2 lg:border-b lg:shadow-sm lg:transform lg:hover:-translate-y-1 lg:transition-all lg:duration-300"
+      css={[twClasses]}
     >
       <Link to={path}>
-        <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200 group-hover:bg-pink-400">
+        <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200">
           {title}
         </h2>
         <div tw="bg-gray-700 p-1 lg:ml-4">
@@ -21,10 +22,7 @@ export const BikeCard = ({ path, title, image, keywords }) => {
           ))}
         </div>
       </Link>
-      <Link
-        tw="flex border-b lg:border-0 w-full bg-gray-200 group-hover:bg-pink-400"
-        to={path}
-      >
+      <Link tw="flex border-b lg:border-0 w-full bg-gray-200" to={path}>
         <Img
           tw="mx-auto lg:mr-4 my-4 rounded-lg"
           objectFit="right"
