@@ -62,7 +62,7 @@ const Garden = ({ path }) => {
           return (
             <div
               className="group"
-              tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 p-2 rounded border w-1/2"
+              tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border w-1/2"
               key={post.id}
             >
               <h4 tw="text-lg">
