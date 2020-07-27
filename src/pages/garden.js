@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import tw, { css } from "twin.macro"
 
@@ -6,6 +6,10 @@ import { SEO } from "../components/SEO"
 
 const Garden = ({ path }) => {
   const [state, setState] = useState({ filteredData: [], query: "" })
+  const searchInput = useRef(null)
+  useEffect(() => {
+    searchInput.current.focus()
+  }, [])
   const data = useStaticQuery(graphql`
     query gardenQuery {
       allMdx(
@@ -56,6 +60,7 @@ const Garden = ({ path }) => {
           value={state.query}
           type="text"
           onChange={handleInputChange}
+          ref={searchInput}
           placeholder="Looking for something?"
         />
         {posts.map((post) => {
