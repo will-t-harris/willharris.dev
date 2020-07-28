@@ -51,7 +51,7 @@ const Projects = ({ path }) => {
         <ProjectCard
           projectName="ABQ Bike Trails"
           projectImage={data.abqBikeTrails.childImageSharp.fluid}
-          pageUrl="/projects/abq-bike-trails"
+          pageUrl="http://abqtrails.deepdivecoding.com/"
           sourceUrl="https://github.com/abq-outdoor-trails/outdoor-trails-master"
           liveUrl="http://abqtrails.deepdivecoding.com/"
           builtWith={[
@@ -67,7 +67,7 @@ const Projects = ({ path }) => {
         <ProjectCard
           projectName="Move With Madeline"
           projectImage={data.moveWithMadeline.childImageSharp.fluid}
-          pageUrl="/projects/move-with-madeline"
+          pageUrl="https://movewithmadeline.com"
           sourceUrl="https://github.com/will-t-harris/move-with-madeline"
           liveUrl="https://movewithmadeline.com"
           builtWith={["React", "Gatsby", "Tailwind CSS", "Netlify CMS"]}
@@ -75,7 +75,7 @@ const Projects = ({ path }) => {
         <ProjectCard
           projectName="useInstagramFeed"
           projectImage={data.instagramPhone.childImageSharp.fluid}
-          pageUrl="/projects/use-instagram-feed"
+          pageUrl="https://www.npmjs.com/package/use-instagram-feed"
           sourceUrl="https://github.com/will-t-harris/use-instagram-feed"
           npmUrl="https://www.npmjs.com/package/use-instagram-feed"
           builtWith={["React"]}
