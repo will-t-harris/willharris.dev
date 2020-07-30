@@ -70,16 +70,16 @@ const Garden = ({ path }) => {
               tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border w-1/2"
               key={post.id}
             >
-              <h4 tw="text-lg">
+              <h4 tw="text-lg text-center lg:text-left">
                 <Link to={`/garden${post.frontmatter.path}`}>
                   {post.frontmatter.title}
                 </Link>
               </h4>
-              <div tw="flex flex-auto">
+              <div tw="flex flex-col lg:flex-row flex-auto">
                 {post.frontmatter.tags.map((tag, index) => (
                   <span
                     key={`${post.id}-${index}`}
-                    tw="text-sm italic ml-1 border px-2 py-1 mr-1 mt-1 rounded bg-pink-400 group-hover:bg-lightModeBody"
+                    tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-1/2 lg:w-auto bg-pink-400 group-hover:bg-lightModeBody"
                   >
                     {tag}
                   </span>

@@ -45,7 +45,7 @@ const Projects = ({ path }) => {
     <>
       <SEO title="Projects" pathname={path} />
       <section tw="flex flex-col mx-auto w-screen lg:w-900">
-        <h1 tw="text-4xl mt-10 font-extrabold text-center lg:text-left">
+        <h1 tw="text-4xl mt-12 mb-10 font-extrabold text-center lg:text-left">
           Projects
         </h1>
         <ProjectCard

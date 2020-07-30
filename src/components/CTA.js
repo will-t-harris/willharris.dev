@@ -16,7 +16,7 @@ export const CTA = () => {
   }
 
   return (
-    <section tw="flex flex-col py-20 mx-auto w-900">
+    <section tw="flex flex-col py-20 mx-auto lg:w-900">
       <h2 tw="font-bold text-2xl mb-4">Now What?</h2>
       <p tw="font-normal text-xl mb-4">
         If you enjoyed this post, I'd love to continue the conversation on{" "}

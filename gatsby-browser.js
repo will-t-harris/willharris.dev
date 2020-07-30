@@ -18,8 +18,18 @@ const components = {
     />
   ),
   code: CodeBlock,
-  h2: (props) => <h2 tw="text-2xl font-bold" {...props} />,
-  h3: (props) => <h3 tw="text-xl font-bold" {...props} />,
+  h2: (props) => (
+    <h2
+      tw="text-2xl px-4 py-4 text-center lg:text-left lg:px-0 font-bold"
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <h3
+      tw="text-xl px-4 py-4 text-center lg:text-left lg:px-0 font-bold"
+      {...props}
+    />
+  ),
   img: (props) => <img {...props} />,
   inlineCode: (props) => (
     <code tw="bg-gray-700 text-gray-200 rounded p-1" {...props} />
@@ -29,7 +39,7 @@ const components = {
   ),
   li: (props) => <li tw="text-xl mb-4 mx-auto w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
-  p: (props) => <p tw="leading-relaxed mb-8 text-xl" {...props} />,
+  p: (props) => <p tw="leading-relaxed mb-8 px-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
