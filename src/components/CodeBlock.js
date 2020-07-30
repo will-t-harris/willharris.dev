@@ -6,7 +6,7 @@ import tw from "twin.macro"
 export const CodeBlock = ({ children, className }) => {
   const language = className.replace(/language-/, "")
   return (
-    <div tw="w-screen lg:w-900">
+    <div tw="px-4 w-screen lg:w-900">
       <Highlight {...defaultProps} code={children} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
