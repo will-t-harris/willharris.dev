@@ -9,7 +9,7 @@ import { CodeBlock } from "./src/components/CodeBlock"
 
 const components = {
   a: (props) => (
-    <a tw="text-pink-600 font-semibold hover:text-pink-700" {...props} />
+    <a tw="text-pink-600 font-semibold hover:text-pink-700 w-64" {...props} />
   ),
   blockquote: (props) => (
     <blockquote
@@ -18,15 +18,31 @@ const components = {
     />
   ),
   code: CodeBlock,
-  h2: (props) => <h2 tw="text-2xl font-bold" {...props} />,
-  h3: (props) => <h3 tw="text-xl font-bold" {...props} />,
+  h2: (props) => (
+    <h2
+      tw="text-2xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <h3
+      tw="text-xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      {...props}
+    />
+  ),
   img: (props) => <img {...props} />,
+  inlineCode: (props) => (
+    <code
+      tw="bg-gray-700 text-gray-200 text-lg lg:text-xl rounded p-1"
+      {...props}
+    />
+  ),
   kbd: (props) => (
     <kbd tw="bg-pink-400 text-lightModeText rounded p-2" {...props} />
   ),
-  li: (props) => <li tw="text-xl mb-4 mx-auto w-4/5" {...props} />,
+  li: (props) => <li tw="text-xl mb-4 mx-auto w-64 lg:w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
-  p: (props) => <p tw="leading-relaxed mb-8 text-xl" {...props} />,
+  p: (props) => <p tw="leading-relaxed mb-8 mx-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
@@ -35,17 +51,7 @@ const components = {
   ),
   tr: (props) => <tr tw="odd:bg-gray-400" {...props} />,
   ul: (props) => <ul tw="list-disc" {...props} />,
-  wrapper: (props) => (
-    <article
-      tw="mx-auto"
-      css={[
-        css`
-          width: 900px;
-        `,
-      ]}
-      {...props}
-    />
-  ),
+  wrapper: (props) => <article tw="mx-auto lg:w-900" {...props} />,
 }
 
 export const wrapRootElement = ({ element }) => {

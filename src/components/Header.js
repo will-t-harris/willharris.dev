@@ -7,7 +7,7 @@ import { ChainIcon } from "../components/icons/ChainIcon"
 
 export const Header = () => {
   return (
-    <header tw="transition ease-linear duration-100 fixed w-screen lg:w-full shadow-sm antialiased z-20 bg-lightModeBody text-lightModeText">
+    <header tw="transition ease-linear duration-100 fixed lg:w-full shadow-sm antialiased z-20 bg-lightModeBody text-lightModeText">
       <nav tw="flex mx-auto lg:w-900">
         <Link to="/">
           <ChainIcon />
