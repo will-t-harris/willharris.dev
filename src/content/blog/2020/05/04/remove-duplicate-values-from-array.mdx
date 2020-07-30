@@ -7,7 +7,7 @@ contentCategory: "post"
 tags: ["javascript"]
 ---
 
-In a [previous post](/check-for-array-duplicates) we saw how to determine whether a JavaScript array contains duplicate values. Today, I want to show a few different methods I've found for removing duplicate values from an array.[^1][^2]
+In a [previous post](/check-for-array-duplicates) we saw how to determine whether a JavaScript array contains duplicate values. Today, I want to show a few different methods I've found for removing duplicate values from an array. [source1](https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c)[source2](https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array/9229821#9229821)
 
 ## Using the `Array.prototype.filter()` & `Array.prototype.indexOf()` methods
 
@@ -78,10 +78,6 @@ Sets are guaranteed to preserve the order of the inserted items, and to only con
 
 Here we call the `Set` object's constructor, passing it the array we'd like to construct a `Set` from. Then, once we've trimmed out all the duplicates and stored the remaining values in our `Set`, we convert back to an array and return the result.
 
-I've seen some discussion of this approach being a bit less performant if the array under consideration is very large and contains many duplicate values. However, the same discussion found that this approach is very efficient in a scenario where the data has very few duplicates.[^3]
+I've seen some discussion of this approach being a bit less performant if the array under consideration is very large and contains many duplicate values. However, the same discussion found that this approach is very efficient in a scenario where the data has very few duplicates. [source](https://blog.usejournal.com/performance-of-javascript-array-ops-2690aed47a50)
 
 Personally I think the conciseness of this last approach is enough of a benefit to warrant using the `Set` object approach, unless there's a compelling performance reason not to.
-
-[^1]: https://medium.com/dailyjs/how-to-remove-array-duplicates-in-es6-5daa8789641c
-[^2]: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array/9229821#9229821
-[^3]: https://blog.usejournal.com/performance-of-javascript-array-ops-2690aed47a50
