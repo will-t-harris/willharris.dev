@@ -1,5 +1,6 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
+import Img from "gatsby-image"
 import tw, { css } from "twin.macro"
 import "tailwindcss/dist/base.min.css"
 import "typeface-roboto-slab"
@@ -9,7 +10,7 @@ import { CodeBlock } from "./src/components/CodeBlock"
 
 const components = {
   a: (props) => (
-    <a tw="text-pink-600 font-semibold hover:text-pink-700 w-64" {...props} />
+    <a tw="text-pink-600 font-semibold hover:text-pink-700" {...props} />
   ),
   blockquote: (props) => (
     <blockquote
