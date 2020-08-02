@@ -37,7 +37,7 @@ export const CTA = () => {
           Social media not your thing? Shoot me an email:{" "}
           <CopyToClipboard onCopy={onCopy} text={state.value}>
             <span tw="text-pink-600 font-semibold cursor-pointer">
-              will@bikesandbytes.net
+              will@willharris.dev
             </span>
           </CopyToClipboard>
         </p>
