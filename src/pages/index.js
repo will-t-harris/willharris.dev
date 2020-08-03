@@ -1,10 +1,15 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import tw, { css } from "twin.macro"
+import { CopyToClipboard } from "react-copy-to-clipboard"
+import Tippy from "@tippyjs/react"
+import "tippy.js/dist/tippy.css"
+import "tippy.js/themes/material.css"
 
 import { SEO } from "../components/SEO"
 
 const IndexPage = ({ path }) => {
+  const [isCopied, setIsCopied] = useState(false)
   const data = useStaticQuery(graphql`
     query homePageQuery {
       allFile(
@@ -31,6 +36,9 @@ const IndexPage = ({ path }) => {
       }
     }
   `)
+  const onCopy = () => {
+    setIsCopied(true)
+  }
 
   const { nodes: posts } = data.allFile
 
@@ -47,22 +55,40 @@ const IndexPage = ({ path }) => {
         </p>
         <p tw="lg:mb-16 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
           I'm currently focused on{" "}
-          <a tw="text-pink-400 hover:underline" href="https://reactjs.org/">
+          <a tw="text-pink-600 hover:underline" href="https://reactjs.org/">
             React
           </a>
           ,{" "}
           <a
-            tw="text-pink-400 hover:underline"
+            tw="text-pink-600 hover:underline"
             href="https://www.gatsbyjs.org/"
           >
             Gatsby
           </a>
           , and the{" "}
-          <a tw="text-pink-400 hover:underline" href="https://jamstack.org/">
+          <a tw="text-pink-600 hover:underline" href="https://jamstack.org/">
             Jamstack
           </a>
           .
         </p>
+        <Tippy
+          content={
+            isCopied
+              ? "Email copied to clipboard"
+              : "Click to copy email to clipboard"
+          }
+          theme="material"
+          hideOnClick={false}
+        >
+          <p tw="px-8 lg:px-0 text-3xl font-medium">
+            Want to get in touch? Email me:{" "}
+            <CopyToClipboard onCopy={onCopy} text="will@willharris.dev">
+              <span tw="text-pink-600 font-semibold cursor-pointer">
+                will@willharris.dev
+              </span>
+            </CopyToClipboard>
+          </p>
+        </Tippy>
       </section>
       <section tw="flex flex-col mx-auto lg:w-900">
         <div tw="px-8 lg:px-0 flex items-baseline">
