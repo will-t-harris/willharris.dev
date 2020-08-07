@@ -1,0 +1,62 @@
+---
+path: "/cypress-spinup"
+title: "Setting Up Cypress"
+date: "2020-08-06"
+frontPage: false
+contentCategory: "post"
+tags: ["javascript", "testing"]
+---
+
+## Install Dependencies
+
+```bash
+npm install --save-dev cypress
+```
+
+This installs Cypress into your project.
+
+## Run Cypress
+
+```bash
+npx cypress open
+```
+
+This runs the cypress app, which adds a bunch of folders and example tests to your project.
+
+You can run the tests in the `cypress/integration/examples/` folder, or add your own tests to the `cypress/integration/` directory.
+
+> Note that this command requires npm@5.2.0 or greater
+
+## What Else Is Installed?
+
+The first time it's run, the `npx cypress open` command also installs a `cypress.json` file at the root of your project which is used to configure Cypress.
+
+All of the testing-related files live in the `cypress/` directory.
+
+The `cypress/fixtures` directory holds JSON files that can be used to mock data for your tests if needed.
+
+The `cypress/plugins` directory holds plugins that can tap into the Node process that runs alongside the browser where Cypress tests run.
+
+From the [Cypress docs](https://docs.cypress.io/guides/tooling/plugins-guide.html#Use-Cases):
+
+> Plugins are a “seam” for you to write your own custom code that executes during particular stages of the Cypress lifecycle. It also allows you to execute code within your own Node version when the nodeVersion is set in your configuration.
+
+Cypress will also create `cypress/videos` and `cypress/screenshots` directories that you probably won't want to source control, so it's a good idea to add these to your `.gitignore`.
+
+## Running Your First Cypress Test
+
+Create a file in the `cypress/integration` folder that will house your new test. Name it whatever is relevant to the system you'd like to test.
+
+This is also a good point to delete all the default demonstration tests that Cypress ships with the original installation.
+
+Cypress tests use syntax that's similar to [Mocha](https://mochajs.org/), so you can use `describe` blocks to wrap related tests, and `it` blocks to wrap assertions about the thing under test.
+
+```js
+describe("this is my first test", () => {
+  it("can run this test", () => {})
+})
+```
+
+Then run `npx cypress open` to launch the Cypress app, and click `Run all specs` to run your first Cypress test.
+
+Now Cypress is installed and running successfully.
