@@ -3,8 +3,6 @@ import { MDXProvider } from "@mdx-js/react"
 import Img from "gatsby-image"
 import tw, { css } from "twin.macro"
 import "tailwindcss/dist/base.min.css"
-import "typeface-roboto-slab"
-import "typeface-inter"
 
 import { CodeBlock } from "./src/components/CodeBlock"
 

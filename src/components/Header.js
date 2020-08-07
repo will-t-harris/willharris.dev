@@ -12,14 +12,7 @@ export const Header = () => {
         <Link to="/">
           <ChainIcon />
         </Link>
-        <div
-          tw="flex w-full md:justify-end self-center text-xl lg:text-2xl"
-          css={[
-            css`
-              font-family: roboto slab;
-            `,
-          ]}
-        >
+        <div tw="flex w-full md:justify-end self-center text-xl lg:text-2xl">
           <Link to="/garden" tw="mr-6 lg:mr-12">
             Digital Garden
           </Link>

@@ -2,8 +2,6 @@ import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import tw, { css } from "twin.macro"
 import "tailwindcss/dist/base.min.css"
-import "typeface-roboto-slab"
-import "typeface-inter"
 
 import { CodeBlock } from "./src/components/CodeBlock"
 
