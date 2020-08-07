@@ -12,7 +12,7 @@ const Post = ({ data, path }) => {
     <>
       <SEO title={title} pathname={path} />
       <article tw="flex flex-col">
-        <h1 tw="font-black text-2xl text-center mb-12 mt-16">{title}</h1>
+        <h1 tw="font-black text-4xl text-center mb-12 mt-16">{title}</h1>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
       </article>
       <CTA />
