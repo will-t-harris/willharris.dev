@@ -1,5 +1,6 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
+import Img from "gatsby-image"
 import tw, { css } from "twin.macro"
 import "tailwindcss/dist/base.min.css"
 import "typeface-roboto-slab"
@@ -9,11 +10,11 @@ import { CodeBlock } from "./src/components/CodeBlock"
 
 const components = {
   a: (props) => (
-    <a tw="text-pink-600 font-semibold hover:text-pink-700 w-64" {...props} />
+    <a tw="text-pink-600 font-semibold hover:text-pink-700" {...props} />
   ),
   blockquote: (props) => (
     <blockquote
-      tw="px-2 mx-6 bg-lightModeBody border-l-4 border-gray-600 italic"
+      tw="px-2 mx-6 my-4 bg-lightModeBody shadow border-l-4 border-gray-600 italic"
       {...props}
     />
   ),
@@ -42,7 +43,7 @@ const components = {
   ),
   li: (props) => <li tw="text-xl mb-4 mx-auto w-64 lg:w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
-  p: (props) => <p tw="leading-relaxed mb-8 mx-4 text-xl" {...props} />,
+  p: (props) => <p tw="leading-relaxed mb-6 mx-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
