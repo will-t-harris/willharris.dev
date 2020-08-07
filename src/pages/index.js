@@ -83,7 +83,7 @@ const IndexPage = ({ path }) => {
           <p tw="px-8 lg:px-0 text-3xl font-medium">
             Want to get in touch? Email me:{" "}
             <CopyToClipboard onCopy={onCopy} text="will@willharris.dev">
-              <span tw="text-pink-600 font-semibold cursor-pointer">
+              <span tw="text-pink-600 font-medium cursor-pointer">
                 will@willharris.dev
               </span>
             </CopyToClipboard>
