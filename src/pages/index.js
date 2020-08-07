@@ -92,7 +92,7 @@ const IndexPage = ({ path }) => {
       </section>
       <section tw="flex flex-col mx-auto lg:w-900">
         <div tw="px-8 lg:px-0 flex items-baseline">
-          <h2 tw=" text-3xl font-bold">Recent posts</h2>
+          <h2 tw=" text-3xl font-bold">From The Garden</h2>
           <Link tw="ml-auto text-xl hover:underline" to="/garden">
             all posts
           </Link>
