@@ -65,27 +65,26 @@ const Garden = ({ path }) => {
         />
         {posts.map((post) => {
           return (
-            <div
-              className="group"
-              tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border w-1/2"
-              key={post.id}
-            >
-              <h4 tw="text-lg text-center lg:text-left">
-                <Link to={`/garden${post.frontmatter.path}`}>
+            <Link to={`/garden${post.frontmatter.path}`} key={post.id}>
+              <div
+                className="group"
+                tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border w-1/2"
+              >
+                <h4 tw="text-lg text-center lg:text-left">
                   {post.frontmatter.title}
-                </Link>
-              </h4>
-              <div tw="flex flex-col lg:flex-row flex-auto">
-                {post.frontmatter.tags.map((tag, index) => (
-                  <span
-                    key={`${post.id}-${index}`}
-                    tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400 group-hover:bg-lightModeBody"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                </h4>
+                <div tw="flex flex-col lg:flex-row flex-auto">
+                  {post.frontmatter.tags.map((tag, index) => (
+                    <span
+                      key={`${post.id}-${index}`}
+                      tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400 group-hover:bg-lightModeBody"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Link>
           )
         })}
       </section>

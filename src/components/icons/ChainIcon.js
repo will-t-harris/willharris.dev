@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import tw, { css } from "twin.macro"
 
 export const ChainIcon = () => {
@@ -26,5 +25,3 @@ export const ChainIcon = () => {
     </svg>
   )
 }
-
-ChainIcon.propTypes = {}
