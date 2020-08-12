@@ -1,0 +1,27 @@
+---
+path: "/javascript-linked-lists"
+title: "Notes: Implementing a Linked List in JavaScript"
+date: "2020-08-12"
+frontPage: false
+contentCategory: "post"
+tags: ["javascript", "data structures"]
+---
+
+- Series of linked nodes where each node points to the next node in the list. The pointer is the link.
+- Each node has a value and a pointer reference to the next node.
+- Doubly linked lists have two pointers for each node, one to the next node and one to the previous node.
+- Linked lists are LIFO "last in first out." Nodes are added to and deleted from the same end
+- Searching for a node in a linked list requires iterating through the list until the node is found. Worst case, this is O(n)
+
+## Linked List Methods
+
+- `push(item)`
+  - Add an item to the list
+- `pop()`
+  - Remove an item from the list
+- `get(index)`
+  - Return an element at a given index, without removing it from the list
+- `delete(index)`
+  - Delete an element at a given index
+- `isEmoty()`
+  - Convenience method to check whether the list is empty
