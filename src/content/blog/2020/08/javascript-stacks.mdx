@@ -45,7 +45,7 @@ class Stack {
 
 2. Add the `get length()` getter method to the `Stack` class
 
-```js
+```js {5-7}
 class Stack {
   constructor() {
     this.stack = []
@@ -58,7 +58,7 @@ class Stack {
 
 3. Add the `push` method to add an item to the top of the stack array. This method will take one argument, the item to add. Because the right side of the array is the top, we can use `Array.prototype.push`
 
-```js
+```js {8-10}
 class Stack {
   constructor() {
     this.stack = []
@@ -74,7 +74,7 @@ class Stack {
 
 4. Add the `pop` method to remove the top element from the stack array. Because the right side of the array is the top, we can use `Array.prototype.pop`
 
-```js
+```js {11-13}
 class Stack {
   constructor() {
     this.stack = []
@@ -93,7 +93,7 @@ class Stack {
 
 5. Add the `peek` method to check which element is at the top of the stack. Because the right side of the array is the top, we need to check what the last item is in the array.
 
-```js
+```js {14-16}
 class Stack {
   constructor() {
     this.stack = []
@@ -115,7 +115,7 @@ class Stack {
 
 6. Add the `isEmpty` convenience method that checks whether the stack is empty. Could also skip the method and check if `this.stack.length === 0`, but this approach bakes that check into the stack class.
 
-```js
+```js {17-19}
 class Stack {
   constructor() {
     this.stack = []
