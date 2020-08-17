@@ -1,0 +1,36 @@
+---
+path: "/how-to-add-a-discord-bot"
+title: "How to Add a Bot to Discord"
+date: "2020-08-17"
+frontPage: false
+contentCategory: "post"
+tags: ["discord", "notes"]
+---
+
+This is a quick walkthrough of how to add a bot to a Discord server.
+
+- Visit `discord.com/developers/applications` and log in with your Discord account.
+- After logging in, click "New Application" at the top right:
+  ![Discord ui with arrow to new application](../../../../images/discord-bot/new-application.png)
+- Enter the name of your application, I'll use the name `test-bot` here:
+  ![Discord create application ui with test-bot in name field](../../../../images/discord-bot/name-bot.png)
+- Click on the "Bot" option in the left sidebar to open the Bot creation page:
+  ![Bot option in sidebar](../../../../images/discord-bot/bot-panel.png)
+- Click on the "Add Bot" option:
+  ![Add Bot option](../../../../images/discord-bot/add-bot-option.png)
+- Next, click on the "OAuth2" option in the left sidebar:
+  ![OAuth2 option in sidebar](../../../../images/discord-bot/oauth-option.png)
+- Select the bot scope at the bottom of the page:
+  ![bot option in scopes section](../../../../images/discord-bot/bot-scope.png)
+- Select the permissions you'd like this bot to have:
+  ![bot permissions panel](../../../../images/discord-bot/bot-permissions.png)
+- Copy the generated OAuth url and paste it into your browser:
+  ![generated OAuth url](../../../../images/discord-bot/oauth-url.png)
+- This brings you to an OAuth page that asks you to select which server to attach your bot to&mdash;note that **in order to attach the bot to a server, you must have the "Manage Server" permissions in the server**
+  ![server selection interface](../../../../images/discord-bot/server-selection.png)
+- After you've selected the server you wish you use, click "Continue"
+- This dialogue will give you the opportunity to restrict the permissions that will be granted to the bot on this server. This gives you another chance to modify the specific permissions you'd like the bot to have on this server:
+  ![bot connection options interface](../../../../images/discord-bot/bot-connection-options.png)
+- Once you've selected the permissions you'd like to grant, click "Authorize."
+- You will also have to pass a reCAPTCHA at this point.
+- After all of this, the rust bot should join your server!
