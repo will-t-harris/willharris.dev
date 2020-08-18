@@ -61,7 +61,7 @@ class LinkedList {
 
 3. Create the `isEmpty()` convenience method on the `LinkedList` class which returns `true` if there are no `Node`s in the list
 
-```js
+```js {7-9}
 class LinkedList {
   constructor() {
     this.head = null
@@ -78,7 +78,7 @@ class LinkedList {
 
 - If the list is empty, set the `head` and `tail` to the new `Node` and increment the `length` property by one.
 
-```js
+```js {10-19}
 class LinkedList {
   constructor() {
     this.head = null
@@ -103,7 +103,7 @@ class LinkedList {
 
 - If the list isn't empty, set the current tail's `next` pointer to the new `Node`, set the list's `tail` pointer to the new `Node`, and increment the list's `length` property by one.
 
-```js
+```js {18-21}
 class LinkedList {
   constructor() {
     this.head = null
