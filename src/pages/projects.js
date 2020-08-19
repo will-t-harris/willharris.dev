@@ -38,6 +38,16 @@ const Projects = ({ path }) => {
           }
         }
       }
+      westworldLocations: file(
+        sourceInstanceName: { eq: "images" }
+        name: { eq: "westworld-locations" }
+      ) {
+        childImageSharp {
+          fluid(maxWidth: 900) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `)
 
@@ -48,6 +58,13 @@ const Projects = ({ path }) => {
         <h1 tw="text-4xl mt-12 mb-10 font-extrabold text-center lg:text-left">
           Projects
         </h1>
+        <ProjectCard
+          projectName="Westloan Locations"
+          projectImage={data.westworldLocations.childImageSharp.fluid}
+          pageUrl="https://determined-bose-86548e.netlify.app/"
+          liveUrl="https://determined-bose-86548e.netlify.app/"
+          builtWith={["React", "TypeScript", "Google Maps API", "Sass"]}
+        />
         <ProjectCard
           projectName="ABQ Bike Trails"
           projectImage={data.abqBikeTrails.childImageSharp.fluid}

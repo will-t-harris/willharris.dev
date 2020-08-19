@@ -40,7 +40,9 @@ export const ProjectCard = ({
         ]}
       >
         <div tw="flex justify-center" css={[css``]}>
-          <CardButton buttonText="SOURCE" buttonUrl={sourceUrl} />
+          {sourceUrl && (
+            <CardButton buttonText="SOURCE" buttonUrl={sourceUrl} />
+          )}
           {npmUrl && <CardButton buttonText="NPM" buttonUrl={npmUrl} />}
           {liveUrl && <CardButton buttonText="LIVE" buttonUrl={liveUrl} />}
         </div>
