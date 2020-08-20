@@ -1,6 +1,5 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
-import Img from "gatsby-image"
 import tw, { css } from "twin.macro"
 import "tailwindcss/dist/base.min.css"
 
@@ -19,7 +18,7 @@ const components = {
   code: CodeBlock,
   h2: (props) => (
     <h2
-      tw="text-2xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-2xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
@@ -39,9 +38,9 @@ const components = {
   kbd: (props) => (
     <kbd tw="bg-pink-400 text-lightModeText rounded p-2" {...props} />
   ),
-  li: (props) => <li tw="text-xl mb-4 mx-auto w-64 lg:w-4/5" {...props} />,
+  li: (props) => <li tw="text-xl my-4 mx-auto w-64 lg:w-4/5" {...props} />,
   ol: (props) => <ol tw="list-decimal" {...props} />,
-  p: (props) => <p tw="leading-relaxed mb-6 mx-4 text-xl" {...props} />,
+  p: (props) => <p tw="leading-relaxed my-6 mx-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
@@ -49,7 +48,7 @@ const components = {
     <th tw="px-2 py-1 border border-gray-400 bg-lightModeBody" {...props} />
   ),
   tr: (props) => <tr tw="odd:bg-gray-400" {...props} />,
-  ul: (props) => <ul tw="list-disc" {...props} />,
+  ul: (props) => <ul tw="list-disc mb-4" {...props} />,
   wrapper: (props) => <article tw="mx-auto lg:w-900" {...props} />,
 }
 

@@ -35,11 +35,10 @@ export const CodeBlock = ({ children, className, metastring }) => {
                   ? css`
                       background-color: rgb(53, 59, 69);
                       display: block;
-                      margin-right: -1em;
-                      margin-left: -1em;
-                      padding-right: 1em;
-                      padding-left: 0.75em;
-                      border-left: 0.3em solid #f99;
+                      margin-right: -1.2em;
+                      margin-left: -1.2em;
+
+                      border-left: 0.3em solid #d53f8c;
                     `
                   : {},
               })
