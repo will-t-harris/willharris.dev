@@ -18,19 +18,19 @@ const components = {
   code: CodeBlock,
   h2: (props) => (
     <h2
-      tw="text-2xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-3xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      tw="text-xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-2xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
   h4: (props) => (
     <h4
-      tw="text-base px-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-xl px-4 text-center w-screen lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
