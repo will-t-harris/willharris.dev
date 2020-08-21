@@ -28,6 +28,12 @@ const components = {
       {...props}
     />
   ),
+  h4: (props) => (
+    <h4
+      tw="text-base px-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      {...props}
+    />
+  ),
   img: (props) => <img {...props} />,
   inlineCode: (props) => (
     <code
