@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "Will Harris' personal website and blog. A corner of the internet to collect my thoughts about programming, technology, and bicycles.",
+  "description": "Will Harris' personal digital garden.",
   "version": "0.1.0",
   "author": "Will Harris",
   "dependencies": {
