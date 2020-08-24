@@ -9,9 +9,9 @@ tags: ["react"]
 
 One of the most fundamental concepts in React is state. Before diving into the differences between props and state in React, it is important to note the ways in which they overlap.
 
-- Props and state are both ultimately plain old JavaScript objects.
-- Changes to either props or state trigger a re-render for the pieces of the application that were affected by the change.
-- Props and state are both deterministic. A component **must** generate the same output for the same combination of props and state. (See [our previous discussion](https://bikesandbytes.net/what-are-react-components) of components as [pure functions](https://en.wikipedia.org/wiki/Pure_function).)
+- Props and state are both ultimately plain JavaScript objects.
+- Changes to props or state trigger a re-render for the pieces of the application that were affected by the change.
+- Props and state are both deterministic. A component **must** generate the same output for the same combination of props and state. (See [our previous discussion](https://www.willharris.dev/garden/what-are-react-components) of components as [pure functions](https://en.wikipedia.org/wiki/Pure_function).)
 
 All applications have state: a checkbox is checked or unchecked, a link is visited or not, an input has a current value or it is empty, etc. React's state objects give us a place to track of all of these values while the component exists on the page.
 
@@ -26,8 +26,6 @@ Three important things to note about react state:
 ---
 
 Since the release of React v16.8, we've had a simple way to instantiate state in React components using the `useState` hook.
-
-> We haven't discussed React hooks quite yet, but for now we can think of them as functions provided by the React library for doing stuff in our components.
 
 In this example, let's assume that we're dealing with a page that can be toggled between light mode and dark mode. On the initial page load, we want to default to light mode. We can instantiate this state like this:
 
@@ -44,8 +42,6 @@ Without destructuring, the `useState` hook return looks like this:
 ```jsx
 [false, function dispatchAction()]
 ```
-
-We could use this array directly, but destructuring the values out makes state nicer to deal with. Easier to hold, if you will.
 
 To trigger a change to dark mode in this example, we might naturally try taking the `darkMode` value and directly setting it to `true`:
 
