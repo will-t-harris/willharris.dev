@@ -72,11 +72,7 @@ const IndexPage = ({ path }) => {
           .
         </p>
         <Tippy
-          content={
-            isCopied
-              ? "Email copied to clipboard"
-              : "Click to copy email to clipboard"
-          }
+          content={isCopied ? "Email copied" : "Click to copy"}
           theme="material"
           hideOnClick={false}
         >
