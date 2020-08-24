@@ -68,7 +68,7 @@ const Garden = ({ path }) => {
             <Link to={`/garden${post.frontmatter.path}`} key={post.id}>
               <div
                 className="group"
-                tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border w-1/2"
+                tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border"
               >
                 <h4 tw="text-lg text-center lg:text-left">
                   {post.frontmatter.title}
