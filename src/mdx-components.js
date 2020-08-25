@@ -1,6 +1,6 @@
 import React from "react"
-import CodeBlock from "./components/CodeBlock"
-import tw from "twin.macro"
+import { CodeBlock } from "./components/CodeBlock"
+import tw, { css } from "twin.macro"
 
 export default {
   a: (props) => (
