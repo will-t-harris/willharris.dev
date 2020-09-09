@@ -20,6 +20,7 @@ export const BikeCard = ({ path, title, image, twClasses }) => {
           tw="mx-auto mt-2 lg:mb-6 lg:rounded-lg"
           objectFit="right"
           fixed={image}
+          durationFadeIn={100}
         />
       </Link>
     </div>
