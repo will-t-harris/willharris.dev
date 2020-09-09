@@ -3,28 +3,21 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import tw, { css } from "twin.macro"
 
-export const BikeCard = ({ path, title, image, keywords, twClasses }) => {
+export const BikeCard = ({ path, title, image, twClasses }) => {
   return (
     <div
       className="group"
-      tw="flex flex-col bg-gray-200 lg:grid lg:grid-cols-2 lg:border-b lg:shadow-sm lg:transform lg:hover:-translate-y-1 lg:transition-all lg:duration-300"
+      tw="flex flex-col bg-gray-200 mb-8 lg:mb-0 lg:border-b lg:shadow-sm lg:transform lg:hover:-translate-y-1 lg:transition-transform lg:duration-300 group-hover:bg-pink-400"
       css={[twClasses]}
     >
-      <Link to={path}>
-        <h2 tw="self-center pl-4 py-4 lg:mt-0 font-bold text-xl bg-gray-200">
+      <Link to={path} tw="group-hocus:bg-pink-400">
+        <h2 tw="text-center pl-4 pt-4 pb-2 lg:mt-0 font-bold text-xl group-hocus:bg-pink-400">
           {title}
         </h2>
-        <div tw="bg-gray-700 p-1 lg:ml-4">
-          {keywords.map((keyword) => (
-            <span tw="mt-4 ml-2 text-white italic text-xs font-bold tracking-wide">
-              {keyword}
-            </span>
-          ))}
-        </div>
       </Link>
-      <Link tw="flex border-b lg:border-0 w-full bg-gray-200" to={path}>
+      <Link tw="flex border-b lg:border-0 w-full group-hocus:bg-pink-400" to={path}>
         <Img
-          tw="mx-auto lg:mr-4 my-4 rounded-lg"
+          tw="mx-auto mt-2 lg:mb-6 lg:rounded-lg"
           objectFit="right"
           fixed={image}
         />

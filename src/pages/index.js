@@ -45,15 +45,15 @@ const IndexPage = ({ path }) => {
   return (
     <>
       <SEO title="Home" pathname={path} />
-      <section tw="flex flex-col py-12 lg:py-40 mx-auto w-auto lg:w-900">
-        <h2 tw="mb-8 lg:mb-16 mx-auto lg:mx-0 text-4xl font-bold">
+      <section tw="flex flex-col py-12 lg:py-40 mx-auto mb-32 w-auto lg:w-900">
+        <h2 tw="mb-8 lg:mb-8 mx-auto lg:mx-0 text-4xl font-bold">
           Hi, I'm Will
         </h2>
-        <p tw="mb-8 lg:mb-16 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
+        <p tw="mb-8 lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
           I'm a software developer, content creator, and bikepacker from San
           Francisco.{" "}
         </p>
-        <p tw="lg:mb-16 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
+        <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
           I'm currently focused on{" "}
           <a tw="text-pink-600 hover:underline" href="https://reactjs.org/">
             React
@@ -89,7 +89,7 @@ const IndexPage = ({ path }) => {
       <section tw="flex flex-col mx-auto lg:w-900">
         <div tw="px-8 lg:px-0 flex items-baseline">
           <h2 tw=" text-3xl font-bold">From The Garden</h2>
-          <Link tw="ml-auto text-xl hover:underline" to="/garden">
+          <Link tw="ml-auto text-xl hocus:underline" to="/garden">
             all posts
           </Link>
         </div>
@@ -100,7 +100,7 @@ const IndexPage = ({ path }) => {
               <Link
                 className="group"
                 key={post.id}
-                tw="text-xl font-medium  px-4 pt-2 rounded hover:bg-pink-400"
+                tw="text-xl font-medium  px-4 pt-2 rounded hocus:bg-pink-400"
                 to={`/garden${frontmatter.path}`}
               >
                 {frontmatter.title}
@@ -109,7 +109,7 @@ const IndexPage = ({ path }) => {
                     return (
                       <span
                         key={`${post.id}-${index}`}
-                        tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hover:bg-lightModeBody tracking-wide"
+                        tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hocus:bg-lightModeBody tracking-wide"
                       >
                         {tag}
                       </span>

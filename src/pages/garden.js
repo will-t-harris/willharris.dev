@@ -51,12 +51,12 @@ const Garden = ({ path }) => {
   return (
     <>
       <SEO title="Digital Garden" pathname={path} />
-      <section tw="flex flex-col mx-auto w-auto lg:w-900">
+      <section tw="flex flex-col mx-auto mb-8 w-auto lg:w-900">
         <h1 tw="text-4xl mx-auto lg:ml-0 mt-12 mb-10 font-extrabold">
           Digital Garden
         </h1>
         <input
-          tw="mx-8 lg:mx-0 py-1 px-3 rounded-md shadow mb-16 text-lg"
+          tw="mx-8 lg:mx-0 py-1 px-3 rounded-md shadow mb-8 text-lg"
           value={state.query}
           type="text"
           onChange={handleInputChange}
@@ -65,24 +65,24 @@ const Garden = ({ path }) => {
         />
         {posts.map((post) => {
           return (
-            <Link to={`/garden${post.frontmatter.path}`} key={post.id}>
-              <div
-                className="group"
-                tw="mb-3 mx-auto lg:mx-0 hover:bg-pink-400 py-2 px-8 rounded border"
-              >
-                <h4 tw="text-lg text-center lg:text-left">
-                  {post.frontmatter.title}
-                </h4>
-                <div tw="flex flex-col lg:flex-row flex-auto">
-                  {post.frontmatter.tags.map((tag, index) => (
-                    <span
-                      key={`${post.id}-${index}`}
-                      tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400 group-hover:bg-lightModeBody"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+            <Link
+              to={`/garden${post.frontmatter.path}`}
+              key={post.id}
+              className="group"
+              tw="mb-2 mx-auto lg:mx-0 py-2 px-8 rounded border hover:bg-pink-400 focus:bg-pink-400"
+            >
+              <h4 tw="text-lg text-center lg:text-left">
+                {post.frontmatter.title}
+              </h4>
+              <div tw="flex flex-col lg:flex-row flex-auto">
+                {post.frontmatter.tags.map((tag, index) => (
+                  <span
+                    key={`${post.id}-${index}`}
+                    tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400 group-hocus:bg-lightModeBody"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </Link>
           )
