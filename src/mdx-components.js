@@ -13,6 +13,9 @@ export default {
     />
   ),
   code: CodeBlock,
+  h1: (props) => (
+    <h1 tw="text-4xl font-bold" {...props}/>
+  ),
   h2: (props) => (
     <h2
       tw="text-3xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
