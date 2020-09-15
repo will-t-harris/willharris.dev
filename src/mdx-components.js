@@ -8,7 +8,7 @@ export default {
   ),
   blockquote: (props) => (
     <blockquote
-      tw="px-2 mx-6 my-4 bg-lightModeBody shadow border-l-4 border-gray-600 italic"
+      tw="px-2 mx-6 my-4 bg-pink-200 shadow border-l-4 border-gray-600"
       {...props}
     />
   ),
