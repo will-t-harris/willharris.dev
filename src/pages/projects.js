@@ -6,51 +6,8 @@ import { SEO } from "../components/SEO"
 import { ProjectCard } from "../components/ProjectCard"
 
 const Projects = ({ path }) => {
-  const data = useStaticQuery(graphql`
-    query projectsQuery {
-      moveWithMadeline: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "move-with-madeline" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      instagramPhone: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "instagram-phone" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      abqBikeTrails: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "abq-bike-trails" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      westworldLocations: file(
-        sourceInstanceName: { eq: "images" }
-        name: { eq: "westworld-locations" }
-      ) {
-        childImageSharp {
-          fluid(maxWidth: 900) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
+  const data = useStaticQuery(projectsPageQuery)
+  console.log(data)
   return (
     <>
       <SEO title="Projects" pathname={path} />
@@ -58,6 +15,11 @@ const Projects = ({ path }) => {
         <h1 tw="text-4xl mt-12 mb-10 font-extrabold text-center lg:text-left">
           Projects
         </h1>
+        <ProjectCard
+          projectName="Northeastern University Fall Fest 2020"
+          projectImage={data.fallFest.childImageSharp.fluid}
+          builtWith={["React", "TypeScript", "Aphrodite", "Apollo", "Prisma"]}
+        />
         <ProjectCard
           projectName="Westloan Locations"
           projectImage={data.westworldLocations.childImageSharp.fluid}
@@ -103,3 +65,58 @@ const Projects = ({ path }) => {
 }
 
 export default Projects
+
+const projectsPageQuery = graphql`
+  query projectsQuery {
+    fallFest: file(
+      sourceInstanceName: { eq: "images" }
+      name: { eq: "fall-fest-home" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    westworldLocations: file(
+      sourceInstanceName: { eq: "images" }
+      name: { eq: "westworld-locations" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    abqBikeTrails: file(
+      sourceInstanceName: { eq: "images" }
+      name: { eq: "abq-bike-trails" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    moveWithMadeline: file(
+      sourceInstanceName: { eq: "images" }
+      name: { eq: "move-with-madeline" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    instagramPhone: file(
+      sourceInstanceName: { eq: "images" }
+      name: { eq: "instagram-phone" }
+    ) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
