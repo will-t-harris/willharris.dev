@@ -19,6 +19,7 @@ const Projects = ({ path }) => {
           projectName="Northeastern University Fall Fest 2020"
           projectImage={data.fallFest.childImageSharp.fluid}
           builtWith={["React", "TypeScript", "Aphrodite"]}
+          pageUrl="https://yeti.co/northeastern-fall-fest-2020/"
         />
         <ProjectCard
           projectName="Westloan Locations"
