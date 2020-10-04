@@ -12,20 +12,20 @@ const Projects = ({ path }) => {
     <>
       <SEO title="Projects" pathname={path} />
       <section tw="flex flex-col mx-auto w-screen lg:w-900">
-        <h1 tw="text-4xl mt-12 mb-10 font-extrabold text-center lg:text-left">
+        <h1 tw="text-4xl mt-40 mb-10 font-extrabold text-center lg:text-left">
           Projects
         </h1>
         <ProjectCard
           projectName="Northeastern University Fall Fest 2020"
           projectImage={data.fallFest.childImageSharp.fluid}
-          builtWith={["React", "TypeScript", "Aphrodite", "Apollo", "Prisma"]}
+          builtWith={["React", "TypeScript", "Aphrodite"]}
         />
         <ProjectCard
           projectName="Westloan Locations"
           projectImage={data.westworldLocations.childImageSharp.fluid}
           pageUrl="https://determined-bose-86548e.netlify.app/"
           liveUrl="https://determined-bose-86548e.netlify.app/"
-          builtWith={["React", "TypeScript", "Google Maps API", "Sass"]}
+          builtWith={["React", "TypeScript", "Google Maps", "Sass"]}
         />
         <ProjectCard
           projectName="ABQ Bike Trails"
@@ -50,14 +50,6 @@ const Projects = ({ path }) => {
           sourceUrl="https://github.com/will-t-harris/move-with-madeline"
           liveUrl="https://movewithmadeline.com"
           builtWith={["React", "Gatsby", "Tailwind CSS", "Netlify CMS"]}
-        />
-        <ProjectCard
-          projectName="useInstagramFeed"
-          projectImage={data.instagramPhone.childImageSharp.fluid}
-          pageUrl="https://www.npmjs.com/package/use-instagram-feed"
-          sourceUrl="https://github.com/will-t-harris/use-instagram-feed"
-          npmUrl="https://www.npmjs.com/package/use-instagram-feed"
-          builtWith={["React"]}
         />
       </section>
     </>
