@@ -13,9 +13,7 @@ export default {
     />
   ),
   code: CodeBlock,
-  h1: (props) => (
-    <h1 tw="text-4xl font-bold" {...props}/>
-  ),
+  h1: (props) => <h1 tw="text-4xl font-bold" {...props} />,
   h2: (props) => (
     <h2
       tw="text-3xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
@@ -44,10 +42,13 @@ export default {
   kbd: (props) => (
     <kbd tw="bg-pink-400 text-lightModeText rounded p-2" {...props} />
   ),
-  li: (props) => <li tw="text-xl my-4 mx-auto w-64 lg:w-4/5" {...props} />,
+  li: (props) => (
+    <li tw="text-xl my-8 mx-auto w-64 lg:w-4/5 list-none" {...props} />
+  ),
   ol: (props) => <ol tw="list-decimal" {...props} />,
   p: (props) => <p tw="leading-relaxed my-6 mx-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
+  span: (props) => <span tw="mt-16" {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
   th: (props) => (
