@@ -48,7 +48,7 @@ export default {
   ol: (props) => <ol tw="list-decimal" {...props} />,
   p: (props) => <p tw="leading-relaxed my-6 mx-4 text-xl" {...props} />,
   pre: (props) => <pre {...props} />,
-  span: (props) => <span tw="mt-16" {...props} />,
+  span: (props) => <span tw="mt-8" {...props} />,
   table: (props) => <table tw="mb-6 mx-auto" {...props} />,
   td: (props) => <td tw="px-2 py-1 border border-gray-400" {...props} />,
   th: (props) => (
