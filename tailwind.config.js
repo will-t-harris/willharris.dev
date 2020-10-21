@@ -10,13 +10,16 @@ module.exports = {
       borderColor: {
         lightModeText: "#323d79",
       },
-      textColor: {
-        lightModeText: "#323d79",
-        darkModeText: "#f4f9fc",
+      gridTemplateColumns: {
+        layoutGrid: '1fr 700px 1fr'
       },
       spacing: {
         900: "56.25rem",
         600: "37.5rem",
+      },
+      textColor: {
+        lightModeText: "#323d79",
+        darkModeText: "#f4f9fc",
       },
     },
   },
