@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 
 import { SEO } from "../components/SEO"
 

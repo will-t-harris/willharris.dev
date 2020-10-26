@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import tw from "twin.macro"
+import "twin.macro"
 
 import { SEO } from "../components/SEO"
 

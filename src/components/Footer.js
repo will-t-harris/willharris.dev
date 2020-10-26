@@ -1,5 +1,5 @@
 import React from "react"
-import ts, { css } from "twin.macro"
+import "twin.macro"
 
 import { GatsbyIcon } from "./icons/GatsbyIcon"
 import { NetlifyIcon } from "./icons/NetlifyIcon"

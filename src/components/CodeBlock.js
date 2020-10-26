@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Highlight, { defaultProps } from "prism-react-renderer"
-import tw, { css } from "twin.macro"
+import { css } from "twin.macro"
 import rangeParser from "parse-numeric-range"
 
 const calculateLinesToHighlight = (meta) => {

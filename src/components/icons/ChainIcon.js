@@ -1,5 +1,5 @@
 import React from "react"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 
 export const ChainIcon = () => {
   return (

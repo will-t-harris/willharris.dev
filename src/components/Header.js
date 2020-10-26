@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 
 import { ChainIcon } from "../components/icons/ChainIcon"
 

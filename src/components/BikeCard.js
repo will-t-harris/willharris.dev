@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 
 export const BikeCard = ({ path, title, image, twClasses }) => {
   return (

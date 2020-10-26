@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import tw, { css } from "twin.macro"
+import tw from "twin.macro"
 
 import { SEO } from "../components/SEO"
 import { BikeCard } from "../components/BikeCard"

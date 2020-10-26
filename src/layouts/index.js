@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"

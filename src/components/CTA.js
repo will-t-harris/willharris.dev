@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import tw, { css } from "twin.macro"
+import "twin.macro"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 import Tippy from "@tippyjs/react"
 import "tippy.js/dist/tippy.css"

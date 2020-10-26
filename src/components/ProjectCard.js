@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import tw, { css } from "twin.macro"
+import { css } from "twin.macro"
 
 import { CardButton } from "./CardButton"
 
