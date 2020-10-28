@@ -100,16 +100,16 @@ const IndexPage = ({ path }) => {
               <Link
                 className="group"
                 key={post.id}
-                tw="text-xl font-medium  px-4 pt-2 rounded hocus:bg-pink-400"
+                tw="flex flex-col text-xl font-medium px-4 pt-2 rounded hover:shadow border mb-2 focus:border-pink-400 focus:border-2"
                 to={`/garden${frontmatter.path}`}
               >
                 {frontmatter.title}
-                <div tw="flex pb-4">
+                <div tw="flex pb-4 ml-auto">
                   {frontmatter.tags.map((tag, index) => {
                     return (
                       <span
                         key={`${post.id}-${index}`}
-                        tw="text-sm italic ml-1 px-2 py-1 mr-1 mt-1 bg-pink-400 rounded group-hocus:bg-lightModeBody tracking-wide"
+                        tw="text-sm italic px-2 py-1 mr-1 mt-1 bg-pink-400 rounded tracking-wide"
                       >
                         {tag}
                       </span>

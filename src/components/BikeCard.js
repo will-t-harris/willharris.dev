@@ -7,15 +7,15 @@ export const BikeCard = ({ path, title, image, twClasses }) => {
   return (
     <div
       className="group"
-      tw="flex flex-col bg-gray-200 mb-8 lg:mb-0 lg:border-b lg:shadow-sm lg:transform lg:hover:-translate-y-1 lg:transition-transform lg:duration-300 group-hover:bg-pink-400"
+      tw="flex flex-col mb-8 lg:mb-0 lg:border lg:rounded-xl lg:hover:shadow-lg"
       css={[twClasses]}
     >
-      <Link to={path} tw="group-hocus:bg-pink-400">
-        <h2 tw="text-center pl-4 pt-4 pb-2 lg:mt-0 font-bold text-xl group-hocus:bg-pink-400">
+      <Link to={path}>
+        <h2 tw="text-center pl-4 pt-4 pb-2 lg:mt-0 font-bold text-xl">
           {title}
         </h2>
       </Link>
-      <Link tw="flex border-b lg:border-0 w-full group-hocus:bg-pink-400" to={path}>
+      <Link tw="flex border-b lg:border-0 w-full" to={path}>
         <Img
           tw="mx-auto mt-2 lg:mb-6 lg:rounded-lg"
           objectFit="right"

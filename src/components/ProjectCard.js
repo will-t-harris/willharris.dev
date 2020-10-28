@@ -16,7 +16,7 @@ export const ProjectCard = ({
   builtWith,
 }) => {
   return (
-    <section tw="my-4 lg:mb-10 lg:shadow-lg lg:w-900">
+    <section tw="my-4 lg:mb-10 lg:hover:shadow lg:w-900">
       <div
         tw="rounded-t overflow-hidden border border-pink-400 border-b-0 mx-auto h-32 lg:w-900 lg:h-64"
         css={[

@@ -56,7 +56,7 @@ const Garden = ({ path }) => {
           Digital Garden
         </h1>
         <input
-          tw="mx-8 lg:mx-0 py-1 px-3 rounded-md shadow mb-8 text-lg"
+          tw="mx-8 lg:mx-0 py-1 px-3 rounded-md hocus:shadow-sm mb-8 text-lg"
           value={state.query}
           type="text"
           onChange={handleInputChange}
@@ -69,7 +69,7 @@ const Garden = ({ path }) => {
               to={`/garden${post.frontmatter.path}`}
               key={post.id}
               className="group"
-              tw="mb-2 mx-auto lg:mx-0 py-2 px-8 rounded border hover:bg-pink-400 focus:bg-pink-400"
+              tw="mb-2 mx-auto lg:mx-0 py-2 px-8 rounded border hover:shadow focus:border-pink-400 focus:border-2"
             >
               <h4 tw="text-lg text-center lg:text-left">
                 {post.frontmatter.title}
@@ -78,7 +78,7 @@ const Garden = ({ path }) => {
                 {post.frontmatter.tags.map((tag, index) => (
                   <span
                     key={`${post.id}-${index}`}
-                    tw="text-sm text-center italic border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400 group-hocus:bg-lightModeBody"
+                    tw="text-sm text-center font-medium border px-2 py-1 mx-auto lg:mx-1 mt-1 rounded w-auto bg-pink-400"
                   >
                     {tag}
                   </span>
