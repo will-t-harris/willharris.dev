@@ -7,7 +7,6 @@ import { ProjectCard } from "../components/ProjectCard"
 
 const Projects = ({ path }) => {
   const data = useStaticQuery(projectsPageQuery)
-  console.log(data)
   return (
     <>
       <SEO title="Projects" pathname={path} />
