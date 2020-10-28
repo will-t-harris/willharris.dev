@@ -61,7 +61,7 @@ const Garden = ({ path }) => {
           type="text"
           onChange={handleInputChange}
           ref={searchInput}
-          placeholder="Looking for something?"
+          placeholder="Search! ✨"
         />
         {posts.map((post) => {
           return (
@@ -69,12 +69,12 @@ const Garden = ({ path }) => {
               to={`/garden${post.frontmatter.path}`}
               key={post.id}
               className="group"
-              tw="mb-2 mx-auto lg:mx-0 py-2 px-8 rounded border hover:shadow focus:border-pink-400 focus:border-2"
+              tw="flex flex-col mb-2 mx-auto lg:mx-0 py-2 px-8 rounded border hover:shadow focus:border-pink-400 focus:border-2"
             >
               <h4 tw="text-lg text-center lg:text-left">
                 {post.frontmatter.title}
               </h4>
-              <div tw="flex flex-col lg:flex-row flex-auto">
+              <div tw="flex flex-col lg:flex-row flex-auto ml-auto">
                 {post.frontmatter.tags.map((tag, index) => (
                   <span
                     key={`${post.id}-${index}`}
