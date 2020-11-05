@@ -48,10 +48,7 @@ const Bikes = ({ path }) => {
     <>
       <SEO title="Bikes" pathname={path} />
       <section tw="flex flex-col mx-auto mb-8 w-64 lg:w-full">
-        <h1 tw="text-4xl mt-40 mb-10 font-extrabold lg:text-center">
-          My (Current) Bike Herd
-        </h1>
-        <div tw="flex flex-col justify-around  rounded-lg lg:grid lg:grid-cols-4 lg:w-full lg:gap-4">
+        <div tw="flex flex-col justify-around mt-40 rounded-lg lg:grid lg:grid-cols-4 lg:w-full lg:gap-4">
           <BikeCard
             twClasses={tw`lg:col-start-2`}
             path="/bikes/surly-long-haul-trucker"
