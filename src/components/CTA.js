@@ -22,7 +22,7 @@ export const CTA = () => {
         If you enjoyed this post, I'd love to continue the conversation on{" "}
         <a
           tw="text-pink-600 font-semibold hover:text-pink-700"
-          href="https://twitter.com/will__tweets"
+          href="https://twitter.com/will_devs"
         >
           Twitter
         </a>
