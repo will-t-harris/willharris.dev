@@ -5,7 +5,6 @@
 ## Built with:
 
 - Gatsby
-- React
 - Mdx
 - twin.macro
 - PrismJS
