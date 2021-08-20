@@ -50,8 +50,7 @@ const IndexPage = ({ path }) => {
           Hi, I'm Will
         </h2>
         <p tw="mb-8 lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
-          I'm a software developer, content creator, and bikepacker from San
-          Francisco.{" "}
+          I'm a software developer, content creator, and bikepacker from Berkeley.{" "}
         </p>
         <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
           I'm currently focused on{" "}
