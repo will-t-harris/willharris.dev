@@ -36,6 +36,7 @@ const IndexPage = ({ path }) => {
       }
     }
   `)
+
   const onCopy = () => {
     setIsCopied(true)
   }
@@ -50,25 +51,11 @@ const IndexPage = ({ path }) => {
           Hi, I'm Will
         </h2>
         <p tw="mb-8 lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
-          I'm a software developer, content creator, and bikepacker from Berkeley.{" "}
+          I'm a software developer, content creator, and bikepacker from
+          Berkeley.{" "}
         </p>
         <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
-          I'm currently focused on{" "}
-          <a tw="text-pink-600 hover:underline" href="https://reactjs.org/">
-            React
-          </a>
-          ,{" "}
-          <a
-            tw="text-pink-600 hover:underline"
-            href="https://www.gatsbyjs.org/"
-          >
-            Gatsby
-          </a>
-          , and the{" "}
-          <a tw="text-pink-600 hover:underline" href="https://jamstack.org/">
-            Jamstack
-          </a>
-          .
+          I currently work primarily with React, TypeScript, and Node.
         </p>
         <Tippy
           content={isCopied ? "Email copied" : "Click to copy"}
