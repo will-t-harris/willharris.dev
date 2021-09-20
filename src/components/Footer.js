@@ -28,7 +28,7 @@ export const Footer = () => {
         </p>
         <a
           tw="mx-auto lg:mx-0 lg:col-start-4 lg:row-start-2"
-          href="https://twitter.com/will__tweets"
+          href="https://twitter.com/will_devs"
         >
           <p tw="font-medium">Twitter</p>
         </a>
