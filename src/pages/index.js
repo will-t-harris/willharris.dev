@@ -46,31 +46,41 @@ const IndexPage = ({ path }) => {
   return (
     <>
       <SEO title="Home" pathname={path} />
-      <section tw="flex flex-col py-12 lg:py-40 mx-auto mb-32 w-auto lg:w-900">
-        <h2 tw="mb-8 lg:mb-8 mx-auto lg:mx-0 text-4xl font-bold">
+      <section tw="flex flex-col py-12 lg:pb-40 pt-20 mx-auto mb-32 w-auto lg:w-900">
+        <h2 tw="mb-8 lg:mb-8 mx-auto lg:mx-0 text-3xl font-bold">
           Hi, I'm Will
         </h2>
-        <p tw="mb-8 lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
+        <p tw="mb-8 lg:mb-4 px-8 lg:mx-0 lg:px-0 text-2xl font-medium">
           I'm a software developer, content creator, and bikepacker from
           Berkeley.{" "}
         </p>
-        <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-3xl font-medium">
-          I currently work primarily with React, TypeScript, and Node.
+        <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-2xl font-medium">
+          I currently work at{" "}
+          <a
+            tw="text-pink-600 font-semibold underline hover:no-underline"
+            href="https://yeti.co/"
+          >
+            Yeti
+          </a>{" "}
+          making custom apps with React, Vue, TypeScript, and Node (amongst
+          other characters).
         </p>
-        <Tippy
-          content={isCopied ? "Email copied" : "Click to copy"}
-          theme="material"
-          hideOnClick={false}
-        >
-          <p tw="px-8 lg:px-0 text-3xl font-medium">
-            Want to get in touch? Email me:{" "}
-            <CopyToClipboard onCopy={onCopy} text="will@willharris.dev">
-              <span tw="text-pink-600 font-medium cursor-pointer">
-                will@willharris.dev
-              </span>
-            </CopyToClipboard>
-          </p>
-        </Tippy>
+        <p tw="px-8 lg:px-0 text-2xl font-medium">
+          Want to get in touch? The best way is by email:{" "}
+          <Tippy
+            content={isCopied ? "Email copied" : "Click to copy"}
+            theme="material"
+            hideOnClick={false}
+          >
+            <span>
+              <CopyToClipboard onCopy={onCopy} text="will@willharris.dev">
+                <span tw="text-pink-600 font-medium cursor-pointer">
+                  will@willharris.dev
+                </span>
+              </CopyToClipboard>
+            </span>
+          </Tippy>
+        </p>
       </section>
       <section tw="flex flex-col mx-auto lg:w-900">
         <div tw="px-8 lg:px-0 flex items-baseline">
