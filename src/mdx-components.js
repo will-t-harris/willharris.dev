@@ -16,19 +16,19 @@ export default {
   h1: (props) => <h1 tw="text-4xl font-bold" {...props} />,
   h2: (props) => (
     <h2
-      tw="text-3xl px-4 pt-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-3xl px-4 pt-4 text-center lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      tw="text-2xl px-4 py-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-2xl px-4 py-4 text-center lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
   h4: (props) => (
     <h4
-      tw="text-xl px-4 text-center w-screen lg:text-left lg:px-0 font-bold"
+      tw="text-xl px-4 text-center lg:text-left lg:px-0 font-bold"
       {...props}
     />
   ),
