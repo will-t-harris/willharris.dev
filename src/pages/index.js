@@ -62,8 +62,8 @@ const IndexPage = ({ path }) => {
           >
             Yeti
           </a>{" "}
-          making custom apps with React, Vue, TypeScript, and Node (✨amongst
-          other characters✨).
+          making custom apps with React, Vue, TypeScript, and Node (✨ amongst
+          other characters ✨).
         </p>
         <p tw="px-8 lg:px-0 text-2xl font-medium">
           Want to get in touch? The best way is by email:{" "}
