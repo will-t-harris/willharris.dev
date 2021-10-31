@@ -7,12 +7,6 @@ module.exports = {
     keywords: ["blog", "javascript"],
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-goatcounter`,
-      options: {
-        code: "willharris",
-      },
-    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-layout`,
     `gatsby-remark-images`,
@@ -24,27 +18,12 @@ module.exports = {
             resolve: `gatsby-remark-images`,
             options: {},
           },
-          `gatsby-remark-embedder`,
         ],
       },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
 
     // Sources
     {

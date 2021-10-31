@@ -106,7 +106,13 @@ export const SEO = ({
               },
             ]
       )}
-    />
+    >
+      <script
+        data-goatcounter="https://willharris.goatcounter.com/count"
+        async
+        src="//gc.zgo.at/count.js"
+      ></script>
+    </Helmet>
   )
 }
 

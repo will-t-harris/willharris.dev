@@ -2,9 +2,12 @@ import React from "react"
 import { CodeBlock } from "./components/CodeBlock"
 import "twin.macro"
 
-export default {
+const mdxComponents = {
   a: (props) => (
-    <a tw="underline text-pink-600 font-semibold hover:text-pink-700" {...props} />
+    <a
+      tw="underline text-pink-600 font-semibold hover:text-pink-700"
+      {...props}
+    />
   ),
   blockquote: (props) => (
     <blockquote
@@ -58,3 +61,5 @@ export default {
   ul: (props) => <ul tw="list-disc mb-4" {...props} />,
   wrapper: (props) => <article tw="mx-auto lg:w-900" {...props} />,
 }
+
+export default mdxComponents
