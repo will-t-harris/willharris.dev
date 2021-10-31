@@ -13,6 +13,7 @@ module.exports = {
       textColor: {
         lightModeText: "#323d79",
         darkModeText: "#f4f9fc",
+        netlify: "#3CAABC"
       },
       spacing: {
         900: "56.25rem",
