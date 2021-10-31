@@ -4,7 +4,7 @@ import "twin.macro"
 
 export default {
   a: (props) => (
-    <a tw="text-pink-600 font-semibold hover:text-pink-700" {...props} />
+    <a tw="underline text-pink-600 font-semibold hover:text-pink-700" {...props} />
   ),
   blockquote: (props) => (
     <blockquote
