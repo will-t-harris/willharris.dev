@@ -7,7 +7,7 @@ import "tippy.js/themes/material.css"
 
 export const CTA = () => {
   const [state, setState] = useState({
-    value: "will@bikesandbytes.net",
+    value: "will@willharris.dev",
     copied: false,
   })
 
