@@ -19,9 +19,6 @@ export const Header = () => {
           <Link to="/bikes" tw="mr-6 lg:mr-12">
             Bikes
           </Link>
-          <Link to="/projects" tw="mr-10 lg:mr-12">
-            Projects
-          </Link>
         </div>
       </nav>
     </header>
