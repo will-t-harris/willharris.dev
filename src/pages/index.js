@@ -47,22 +47,13 @@ const IndexPage = ({ path }) => {
     <>
       <SEO title="Home" pathname={path} />
       <section tw="flex flex-col py-12 pt-20 mx-auto mb-32 w-auto lg:w-900">
-        <h2 tw="mb-4 mx-auto lg:mx-0 text-3xl font-bold">
-          Hi, I'm Will
-        </h2>
-        <p tw="px-8 lg:mx-0 lg:px-0 text-2xl font-medium">
+        <h2 tw="mb-4 mx-auto lg:mx-0 text-3xl font-bold">Hi, I'm Will</h2>
+        <p tw="px-8 lg:mx-0 lg:px-0 text-2xl font-medium mb-4">
           I'm a software developer, content creator, and bikepacker from
           Berkeley.{" "}
         </p>
-        <p tw="lg:mb-4 px-8 lg:mx-0 lg:px-0 text-2xl font-medium">
-          I currently work at{" "}
-          <a
-            tw="text-pink-600 font-semibold underline hover:no-underline"
-            href="https://yeti.co/"
-          >
-            Yeti
-          </a>{" "}
-          making custom apps with React, Vue, TypeScript, and Node (✨ amongst
+        <p tw="mb-4 px-8 lg:mx-0 lg:px-0 text-2xl font-medium">
+          I make custom apps with React, Vue, TypeScript, and Node (✨ amongst
           other characters ✨).
         </p>
         <p tw="px-8 lg:px-0 text-2xl font-medium">
